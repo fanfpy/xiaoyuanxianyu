@@ -26,7 +26,6 @@ public class UserController {
     public List<User> getUsers(){
         return userRepository.findAll();
     }
-
     /**
      * 通过id获取用户信息
      * */
