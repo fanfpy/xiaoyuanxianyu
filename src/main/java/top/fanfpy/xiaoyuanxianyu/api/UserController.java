@@ -2,7 +2,7 @@ package top.fanfpy.xiaoyuanxianyu.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import top.fanfpy.xiaoyuanxianyu.repository.UserRepository;
+import top.fanfpy.xiaoyuanxianyu.domain.UserRepository;
 import top.fanfpy.xiaoyuanxianyu.domain.User;
 
 import java.util.List;
@@ -33,6 +33,11 @@ public class UserController {
     @GetMapping(value = "user/{id}")
     public Optional<User> getOneUser(@PathVariable("id") Integer id){
         return userRepository.findById(id);
+    }
+
+    @GetMapping(value = "user/name/{name}")
+    public List<User> getUserName(@PathVariable("name") String name){
+        return userRepository.findByUsername(name);
     }
 
    /**

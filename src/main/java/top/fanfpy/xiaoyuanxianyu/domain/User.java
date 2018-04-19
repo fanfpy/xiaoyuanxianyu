@@ -2,16 +2,21 @@ package top.fanfpy.xiaoyuanxianyu.domain;
 
 import javax.persistence.*;
 
+/**
+ * @author fanfp
+ * @date 2018/04/19
+ * User实体类
+ * */
 @Entity
 @Table(name = "user")
 public class User {
 
+    /**
+     * GeneratedValue(strategy = GenerationType.IDENTITY) 表示自增长方式使用mysql自带的
+     * */
     @Id
-    //GeneratedValue(strategy = GenerationType.IDENTITY) 表示自增长方式使用mysql自带的
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "id")
     private Integer id;
-
     private String phone;
 
     private String username;
