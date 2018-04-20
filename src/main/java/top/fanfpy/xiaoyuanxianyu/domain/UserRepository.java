@@ -1,9 +1,9 @@
 package top.fanfpy.xiaoyuanxianyu.domain;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import top.fanfpy.xiaoyuanxianyu.domain.User;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author fanfp
@@ -17,5 +17,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
      * @return 用户列表
      * */
     List<User> findByUsername(String username);
+
+
 
 }

@@ -5,15 +5,16 @@ import top.fanfpy.xiaoyuanxianyu.domain.User;
 import java.util.List;
 import java.util.Optional;
 
+
 public interface UserService {
 
-    public List<User> getUserList();
+    public User addUser(User user);
 
-    public Optional<User> findUserById(Integer id);
+    public void delUser(Integer id);
 
-    public void save(User user);
+    public User updateUser(User user);
 
-    public void edit(User user);
+    public List<User> listUser();
 
-    public void delete(Integer id);
+    public Optional<User> getUserOne(Integer id);
 }
