@@ -1,6 +1,6 @@
 package top.fanfpy.xiaoyuanxianyu.service;
 
-import top.fanfpy.xiaoyuanxianyu.domain.User;
+import top.fanfpy.xiaoyuanxianyu.entity.User;
 
 import java.util.List;
 import java.util.Optional;

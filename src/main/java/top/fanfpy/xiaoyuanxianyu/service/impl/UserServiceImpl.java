@@ -2,8 +2,8 @@ package top.fanfpy.xiaoyuanxianyu.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import top.fanfpy.xiaoyuanxianyu.domain.User;
-import top.fanfpy.xiaoyuanxianyu.domain.UserRepository;
+import top.fanfpy.xiaoyuanxianyu.entity.User;
+import top.fanfpy.xiaoyuanxianyu.repository.UserRepository;
 import top.fanfpy.xiaoyuanxianyu.service.UserService;
 
 import java.util.List;

@@ -2,35 +2,43 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <title>Document</title>
+    <link rel='stylesheet'  th:href="@{css/bootstrap/3.3.6/bootstrap.min.css}">
 </head>
-<body>
+<body style="text-align: center;">
 <h2>用户列表</h2>
-
-<table>
+<br>
+<br>
+<table style="margin: auto; width: 60%;" class="table table-hover">
     <thead>
     <tr>
         <td>id</td>
         <td>phone</td>
         <td>username</td>
+        <td>password</td>
         <td>qq</td>
         <td>createAt</td>
         <td>goodmun</td>
         <td>power</td>
         <td>last</td>
         <td>status</td>
+        <td>编辑</td>
+        <td>删除</td>
     </tr>
     </thead>
     <tbody>
     <tr th:each="user : ${users}">
-        <td th:text="${user.id}">id</td>
-        <td th:text="${user.phone}">phone</td>
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.phone}"></td>
         <td th:text="${user.username}"></td>
-        <td th:text="${user.qq}">qq</td>
-        <!--<td th:text="${user.createAt}"></td>-->
-        <!--<td th:text="${user.goodNum}"></td>-->
-        <!--<td th:text="${user.power}"></td>-->
+        <td th:text="${user.password}"></td>
+        <td th:text="${user.qq}"></td>
+        <td th:text="${user.createAt}"></td>
+        <td th:text="${user.goodsNum}"></td>
+        <td th:text="${user.power}"></td>
         <td th:text="${user.lastLogin}"></td>
         <td th:text="${user.status}"></td>
+        <td><a th:href="@{toUpdateUser/{id}(id=${user.id})}">编辑</a></td>
+        <td><a th:href="@{delUser/{id}(id=${user.id})}">删除</a></td>
     </tr>
     </tbody>
 </table>

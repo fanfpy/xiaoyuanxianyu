@@ -2,8 +2,8 @@ package top.fanfpy.xiaoyuanxianyu.web.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import top.fanfpy.xiaoyuanxianyu.domain.UserRepository;
-import top.fanfpy.xiaoyuanxianyu.domain.User;
+import top.fanfpy.xiaoyuanxianyu.repository.UserRepository;
+import top.fanfpy.xiaoyuanxianyu.entity.User;
 
 import java.util.List;
 import java.util.Optional;

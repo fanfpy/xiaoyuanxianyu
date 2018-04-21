@@ -75,6 +75,7 @@
         <!--AOP-->
         <!--<dependency>-->
             <!--<groupId>org.springframework.boot</groupId>-->
+
             <!--<artifactId>spring-boot-starter-aop</artifactId>-->
         <!--</dependency>-->
     </dependencies>
@@ -87,6 +88,7 @@
                 <!--开启热部署-->
                 <configuration>
                     <fork>true</fork>
+                    <addResources>true</addResources><!--支持静态文件热部署-->
                 </configuration>
             </plugin>
         </plugins>

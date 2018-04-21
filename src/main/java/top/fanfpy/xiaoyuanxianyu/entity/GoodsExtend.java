@@ -1,4 +1,7 @@
-package top.fanfpy.xiaoyuanxianyu.domain;
+package top.fanfpy.xiaoyuanxianyu.entity;
+
+import top.fanfpy.xiaoyuanxianyu.entity.Goods;
+import top.fanfpy.xiaoyuanxianyu.entity.Image;
 
 import java.util.ArrayList;
 import java.util.List;

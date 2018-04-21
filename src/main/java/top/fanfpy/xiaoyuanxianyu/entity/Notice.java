@@ -1,4 +1,4 @@
-package top.fanfpy.xiaoyuanxianyu.domain;
+package top.fanfpy.xiaoyuanxianyu.entity;
 
 public class Notice {
     private Integer id;

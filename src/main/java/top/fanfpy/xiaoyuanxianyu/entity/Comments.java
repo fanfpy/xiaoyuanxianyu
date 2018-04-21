@@ -1,13 +1,11 @@
-package top.fanfpy.xiaoyuanxianyu.domain;
+package top.fanfpy.xiaoyuanxianyu.entity;
 
-public class Reply {
+public class Comments {
     private Integer id;
 
     private Integer userId;
 
-    private Integer atuserId;
-
-    private Integer commetId;
+    private Integer goodsId;
 
     private String createAt;
 
@@ -29,20 +27,12 @@ public class Reply {
         this.userId = userId;
     }
 
-    public Integer getAtuserId() {
-        return atuserId;
+    public Integer getGoodsId() {
+        return goodsId;
     }
 
-    public void setAtuserId(Integer atuserId) {
-        this.atuserId = atuserId;
-    }
-
-    public Integer getCommetId() {
-        return commetId;
-    }
-
-    public void setCommetId(Integer commetId) {
-        this.commetId = commetId;
+    public void setGoodsId(Integer goodsId) {
+        this.goodsId = goodsId;
     }
 
     public String getCreateAt() {
