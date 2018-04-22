@@ -1,8 +1,8 @@
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta charset="UTF-8">
     <title>Document</title>
-    <link rel='stylesheet'  th:href="@{css/bootstrap/3.3.6/bootstrap.min.css}">
 </head>
 <body style="text-align: center;">
 <h2>用户列表</h2>
@@ -42,5 +42,6 @@
     </tr>
     </tbody>
 </table>
+<div th:include="layout/copyright::copyright"></div>
 </body>
 </html>

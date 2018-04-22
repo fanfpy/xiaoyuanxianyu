@@ -5,10 +5,13 @@ import org.springframework.stereotype.Service;
 import top.fanfpy.xiaoyuanxianyu.entity.User;
 import top.fanfpy.xiaoyuanxianyu.repository.UserRepository;
 import top.fanfpy.xiaoyuanxianyu.service.UserService;
-
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * @author fanfp
+ * @date 2018/4/20
+ * */
 @Service
 public class UserServiceImpl implements UserService {
 
