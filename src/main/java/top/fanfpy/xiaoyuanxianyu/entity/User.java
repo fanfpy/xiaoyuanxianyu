@@ -3,15 +3,15 @@ package top.fanfpy.xiaoyuanxianyu.entity;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author fanfp
  * @date 2018/04/19
  * User实体类
  * */
-@Entity
-@Table(name = "user")
+@Entity(name = "user")
 public class User {
 
     /**
@@ -21,30 +21,57 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @NotNull(message = "手机号不能为空")
+    @Length(min = 11 , message = "手机号")
     private String phone;
 
-    @NotEmpty(message = "用户名不能为空")
-    @Length(min = 5,message = "用户名不小于五位")
+    @NotNull(message = "用户名不能为空")
     private String username;
 
-    @NotEmpty(message = "密码不能为空")
-    @Length(min = 6,message = "密码不小于六位")
+    @Length(min = 6 , message = "密码不小于6位")
+    @Column(nullable = false)
     private String password;
 
-    @NotEmpty(message = "qq不能为空")
+    @NotNull(message = "qq不能为空")
     private String qq;
 
+    @NotNull(message = "邮箱不能为空")
+    @Email
+    private String email;
+
+    @Column(name = "create_at")
+    @NotNull(message = "创建时间不能为空")
     private String createAt;
 
+    @NotNull(message = "发布数不能为空")
     private Integer goodsNum;
 
+    @NotNull(message = "权限值默认为10")
     private Byte power;
 
+    @NotNull(message = "最近登陆时间")
     private String lastLogin;
 
-    private Byte status;
+    @NotNull(message = "是否冻结默认为0，1为未激活，2为封禁")
+    private Byte status ;
 
-    public User() {
+    @NotNull(message = "用户头像")
+    private String userImg;
+
+    public User(){}
+
+    public User(@NotNull(message = "手机号不能为空") @Length(min = 11, message = "手机号") String phone, @NotNull(message = "用户名不能为空") @Length(min = 5, message = "用户名不小于五位") String username, String password, @NotNull(message = "qq不能为空") String qq, @NotNull(message = "邮箱不能为空") String email, @NotNull(message = "创建时间不能为空") String createAt, @NotNull(message = "发布数不能为空") Integer goodsNum, @NotNull(message = "权限值默认为10") Byte power, @NotNull(message = "最近登陆时间") String lastLogin, @NotNull(message = "是否冻结默认为0") Byte status, @NotNull(message = "用户头像") String userImg) {
+        this.phone = phone;
+        this.username = username;
+        this.password = password;
+        this.qq = qq;
+        this.email = email;
+        this.createAt = createAt;
+        this.goodsNum = goodsNum;
+        this.power = power;
+        this.lastLogin = lastLogin;
+        this.status = status;
+        this.userImg = userImg;
     }
 
     public Integer getId() {
@@ -60,7 +87,7 @@ public class User {
     }
 
     public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
+        this.phone = phone.trim();
     }
 
     public String getUsername() {
@@ -68,7 +95,7 @@ public class User {
     }
 
     public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+        this.username = username.trim();
     }
 
     public String getPassword() {
@@ -76,7 +103,7 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+        this.password = password.trim();
     }
 
     public String getQq() {
@@ -84,7 +111,15 @@ public class User {
     }
 
     public void setQq(String qq) {
-        this.qq = qq == null ? null : qq.trim();
+        this.qq = qq.trim();
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email.trim();
     }
 
     public String getCreateAt() {
@@ -92,7 +127,7 @@ public class User {
     }
 
     public void setCreateAt(String createAt) {
-        this.createAt = createAt == null ? null : createAt.trim();
+        this.createAt = createAt;
     }
 
     public Integer getGoodsNum() {
@@ -116,7 +151,7 @@ public class User {
     }
 
     public void setLastLogin(String lastLogin) {
-        this.lastLogin = lastLogin == null ? null : lastLogin.trim();
+        this.lastLogin = lastLogin;
     }
 
     public Byte getStatus() {
@@ -127,6 +162,14 @@ public class User {
         this.status = status;
     }
 
+    public String getUserImg() {
+        return userImg;
+    }
+
+    public void setUserImg(String userImg) {
+        this.userImg = userImg;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -135,11 +178,13 @@ public class User {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", qq='" + qq + '\'' +
+                ", email='" + email + '\'' +
                 ", createAt='" + createAt + '\'' +
                 ", goodsNum=" + goodsNum +
                 ", power=" + power +
                 ", lastLogin='" + lastLogin + '\'' +
                 ", status=" + status +
+                ", userImg='" + userImg + '\'' +
                 '}';
     }
 }

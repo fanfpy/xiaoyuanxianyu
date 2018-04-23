@@ -60,7 +60,7 @@ public class UserApiController {
      *  通过name获取用户信息
     * */
     @GetMapping(value = "/user/name/{name}")
-    public List<User> getUserName(@PathVariable("name") String name){
+    public User getUserName(@PathVariable("name") String name){
         return userRepository.findByUsername(name);
     }
 }

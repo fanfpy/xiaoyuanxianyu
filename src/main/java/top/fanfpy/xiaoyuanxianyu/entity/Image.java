@@ -1,11 +1,28 @@
 package top.fanfpy.xiaoyuanxianyu.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
+/**
+ * 图片表
+ * @author fanfp
+ * @date 2018/4/
+ * */
+@Entity(name = "image")
 public class Image {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @NotNull
     private Integer goodsId;
 
+    @NotNull(message = "图片链接不能为空")
     private String imgUrl;
+
 
     public Integer getId() {
         return id;

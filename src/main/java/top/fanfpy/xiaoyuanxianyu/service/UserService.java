@@ -17,4 +17,6 @@ public interface UserService {
     public List<User> listUser();
 
     public Optional<User> getUserOne(Integer id);
+
+    public User getUsername(String username);
 }

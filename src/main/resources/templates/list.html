@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <!--<link rel="stylesheet" href="../static/bootstrap/css/bootstrap/3.3.6/bootstrap.css"/>-->
 </head>
 <body style="text-align: center;">
 <h2>用户列表</h2>
 <br>
 <br>
+<div th:include="layout/copyright::copyright"></div>
 <table style="margin: auto; width: 60%;" class="table table-hover">
     <thead>
     <tr>
@@ -38,10 +40,9 @@
         <td th:text="${user.lastLogin}"></td>
         <td th:text="${user.status}"></td>
         <td><a th:href="@{toUpdateUser/{id}(id=${user.id})}">编辑</a></td>
-        <td><a th:href="@{delUser/{id}(id=${user.id})}">删除</a></td>
+        <td><a th:href="@{delUser/{id}(id=${user.id})}" onclick="return confirm('确认是否删除此用户？')">删除</a></td>
     </tr>
     </tbody>
 </table>
-<div th:include="layout/copyright::copyright"></div>
 </body>
 </html>

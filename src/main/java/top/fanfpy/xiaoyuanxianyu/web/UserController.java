@@ -3,10 +3,13 @@ package top.fanfpy.xiaoyuanxianyu.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import top.fanfpy.xiaoyuanxianyu.entity.User;
+import top.fanfpy.xiaoyuanxianyu.repository.UserRepository;
 import top.fanfpy.xiaoyuanxianyu.service.UserService;
+
+import javax.validation.Valid;
+import java.util.List;
 
 /**
  * @author fanfp
@@ -33,9 +36,25 @@ public class UserController {
         return "toUpdateUser";
     }
 
-    @RequestMapping(value = "/delUser/{id}")
+    @RequestMapping("/delUser/{id}")
     public String delUpdate(@PathVariable Integer id){
         userService.delUser(id);
+        return "redirect:/list";
+    }
+
+    @GetMapping("/toAdd")
+    public String toAdd(){
+        return "/adduser";
+    }
+
+    @RequestMapping("/addUser")
+    public String addUser(User user , ModelMap modelMap){
+        User u =userService.getUsername(user.getUsername());
+        if (u != null){
+            modelMap.addAttribute("error","用户已存在");
+            return "/addUser";
+        }
+        userService.addUser(user);
         return "redirect:/list";
     }
 }

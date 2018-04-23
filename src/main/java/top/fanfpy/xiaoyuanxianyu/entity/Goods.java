@@ -1,27 +1,57 @@
 package top.fanfpy.xiaoyuanxianyu.entity;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+/**
+ * 商品表
+ * @author fanfp
+ * @date 2018/4/23
+ * */
+@Entity
+@Table(name = "googs")
 public class Goods {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private Integer catelogId;
+    @NotNull(message = "商品所在分类")
+    private Integer classificationId;
 
+    @NotNull(message = "对应的用户")
     private Integer userId;
 
+    @NotNull(message = "商品名称")
     private String name;
 
+    @NotNull(message = "价格")
+    @Column(name = "price" ,precision = 11,scale = 2)
     private Float price;
 
-    private Float realPrice;
-
+    @NotNull(message = "创建时间")
     private String startTime;
 
-    private String endTime;
-
+    @NotNull(message = "擦亮时间")
     private String polishTime;
 
+    @NotNull(message = "评论数量")
     private Integer commetNum;
 
+    @NotNull(message = "详细信息")
     private String describle;
+
+    public Goods(){};
+
+    public Goods(@NotNull(message = "商品所在分类") Integer classificationId, @NotNull(message = "对应的用户") Integer userId, @NotNull(message = "商品名称") String name, @NotNull(message = "价格") Float price, @NotNull(message = "创建时间") String startTime, @NotNull(message = "擦亮时间") String polishTime, @NotNull(message = "评论数量") Integer commetNum, @NotNull(message = "详细信息") String describle) {
+        this.classificationId = classificationId;
+        this.userId = userId;
+        this.name = name;
+        this.price = price;
+        this.startTime = startTime;
+        this.polishTime = polishTime;
+        this.commetNum = commetNum;
+        this.describle = describle;
+    }
 
     public Integer getId() {
         return id;
@@ -31,12 +61,12 @@ public class Goods {
         this.id = id;
     }
 
-    public Integer getCatelogId() {
-        return catelogId;
+    public Integer getClassificationId() {
+        return classificationId;
     }
 
-    public void setCatelogId(Integer catelogId) {
-        this.catelogId = catelogId;
+    public void setClassificationId(Integer classificationId) {
+        this.classificationId = classificationId;
     }
 
     public Integer getUserId() {
@@ -52,7 +82,7 @@ public class Goods {
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
     }
 
     public Float getPrice() {
@@ -63,28 +93,20 @@ public class Goods {
         this.price = price;
     }
 
-    public Float getRealPrice() {
-        return realPrice;
-    }
-
-    public void setRealPrice(Float realPrice) {
-        this.realPrice = realPrice;
-    }
-
     public String getStartTime() {
         return startTime;
     }
 
     public void setStartTime(String startTime) {
-        this.startTime = startTime == null ? null : startTime.trim();
+        this.startTime = startTime;
     }
 
-    public String getEndTime() {
-        return endTime;
+    public String getPolishTime() {
+        return polishTime;
     }
 
-    public void setEndTime(String endTime) {
-        this.endTime = endTime == null ? null : endTime.trim();
+    public void setPolishTime(String polishTime) {
+        this.polishTime = polishTime;
     }
 
     public Integer getCommetNum() {
@@ -100,14 +122,21 @@ public class Goods {
     }
 
     public void setDescrible(String describle) {
-        this.describle = describle == null ? null : describle.trim();
+        this.describle = describle;
     }
 
-    public String getPolishTime() {
-        return polishTime;
-    }
-
-    public void setPolishTime(String polishTime) {
-        this.polishTime = polishTime;
+    @Override
+    public String toString() {
+        return "Goods{" +
+                "id=" + id +
+                ", classificationId=" + classificationId +
+                ", userId=" + userId +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", startTime='" + startTime + '\'' +
+                ", polishTime='" + polishTime + '\'' +
+                ", commetNum=" + commetNum +
+                ", describle='" + describle + '\'' +
+                '}';
     }
 }
