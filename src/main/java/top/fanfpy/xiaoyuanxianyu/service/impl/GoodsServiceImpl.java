@@ -38,8 +38,8 @@ public class GoodsServiceImpl implements GoodsSrevice {
         return goodsRepository.findAll(pageable);
     }
 
-    @Override
-    public Optional<Goods> findByClassificationId(Integer id, Pageable pageable) {
-        return goodsRepository.findById(id,pageable);
-    }
+//    @Override
+//    public Optional<Goods> findByClassificationId(Integer id, Pageable pageable) {
+//        return goodsRepository.findById(id,pageable);
+//    }
 }

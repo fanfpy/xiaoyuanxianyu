@@ -38,5 +38,5 @@ public interface GoodsSrevice {
      * 通过分类 分页查询
      * @param id 分类id
      * @param pageable 分页参数 */
-     Optional<Goods> findByClassificationId(Integer id , Pageable pageable);
+//     Optional<Goods> findByClassificationId(Integer id , Pageable pageable);
 }
