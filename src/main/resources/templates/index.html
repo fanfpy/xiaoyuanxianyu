@@ -2,47 +2,33 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" th:href="@{/weiui.min.css}">
-    <link rel="stylesheet" href="../static/weui.css">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" th:href="@{layui/css/layui.css}">
+    <script th:src="@{layui/layui.js}"></script>
 </head>
 <body>
-<div class="weui-search-bar" id="search_bar">
-    <form class="weui-search-bar__form">
-        <div class="weui-search-bar__box">
-            <i class="weui-icon-search"></i>
-            <input type="search" class="weui-search-bar__input" id="search_input" placeholder="搜索" />
-            <a href="javascript:" class="weui-icon-clear" id="search_clear"></a>
-        </div>
-        <label for="search_input" class="weui-search-bar__label" id="search_text">
-            <i class="weui-icon-search"></i>
-            <span>搜索</span>
-        </label>
-    </form>
-    <a href="javascript:" class="weui-search-bar__cancel-btn" id="search_cancel">取消</a>
-</div>
-<div class="weui-tab">
-    <div class="weui-tab__panel">
-
-    </div>
-    <div class="weui-tabbar">
-        <a href="javascript:;" class="weui-tabbar__item weui-bar__item_on">
-            <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
-            <p class="weui-tabbar__label">微信</p>
-        </a>
-        <a href="javascript:;" class="weui-tabbar__item">
-            <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
-            <p class="weui-tabbar__label">通讯录</p>
-        </a>
-        <a href="javascript:;" class="weui-tabbar__item">
-            <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
-            <p class="weui-tabbar__label">发现</p>
-        </a>
-        <a href="javascript:;" class="weui-tabbar__item">
-            <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
-            <p class="weui-tabbar__label">我</p>
-        </a>
+<div th:include="layout/header :: head"></div>
+<div class="layui-carousel" id="test1">
+    <div carousel-item>
+        <div>条目1</div>
+        <div>条目2</div>
+        <div>条目3</div>
+        <div>条目4</div>
+        <div>条目5</div>
     </div>
 </div>
+<script>
+    layui.use('carousel', function(){
+        var carousel = layui.carousel;
+        //建造实例
+        carousel.render({
+            elem: '#test1'
+            ,width: '100%' //设置容器宽度
+            ,arrow: 'always' //始终显示箭头
+            //,anim: 'updown' //切换动画方式
+        });
+    });
+</script>
 </body>
 </html>
