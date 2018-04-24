@@ -1,22 +1,42 @@
 package top.fanfpy.xiaoyuanxianyu.service;
 
+
+import org.springframework.ui.ModelMap;
 import top.fanfpy.xiaoyuanxianyu.entity.User;
 
-import java.util.List;
-import java.util.Optional;
+import javax.servlet.http.HttpServletRequest;
 
-
+/**
+ * @author fanfp
+ * @date 2018/4/23
+ * */
 public interface UserService {
+    /**
+     * 登陆
+     * @param request
+     * @param username 用户名
+     * @param password 密码
+     * @return user
+     * */
+    User login(HttpServletRequest request , String username, String password , ModelMap modelMap);
 
-    public User addUser(User user);
+    /**
+     * 注册
+     * @param user 用户对象
+     * @return user
+     * */
+    User addUser(User user);
 
-    public void delUser(Integer id);
+    /**
+     * 修改用户
+     * @param user yonghu
+     * @return 返回修改后的值
+     * */
+    User upDate(User user);
 
-    public User updateUser(User user);
-
-    public List<User> listUser();
-
-    public Optional<User> getUserOne(Integer id);
-
-    public User getUsername(String username);
+    /**
+     * 通过id删除用户
+     * @param id 用户id
+     * */
+    void delUser(Integer id);
 }
