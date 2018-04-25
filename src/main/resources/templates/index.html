@@ -3,32 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" th:href="@{layui/css/layui.css}">
-    <script th:src="@{layui/layui.js}"></script>
 </head>
 <body>
-<div th:include="layout/header :: head"></div>
-<div class="layui-carousel" id="test1">
-    <div carousel-item>
-        <div>条目1</div>
-        <div>条目2</div>
-        <div>条目3</div>
-        <div>条目4</div>
-        <div>条目5</div>
-    </div>
+<div th:include="layout/layout::head"></div>
+<div id="goods">
+<table>
+    <tr th:each="good : ${goods}">
+        <td th:text="${good.getName()}"></td>
+        <td th:text="${good.getPrice()}"></td>
+        <td th:text="${good.describle}"></td>
+        <td><img th:src="@{/layui/images/face/0.gif}"></td>
+    </tr>
+</table>
 </div>
-<script>
-    layui.use('carousel', function(){
-        var carousel = layui.carousel;
-        //建造实例
-        carousel.render({
-            elem: '#test1'
-            ,width: '100%' //设置容器宽度
-            ,arrow: 'always' //始终显示箭头
-            //,anim: 'updown' //切换动画方式
-        });
-    });
-</script>
 </body>
 </html>

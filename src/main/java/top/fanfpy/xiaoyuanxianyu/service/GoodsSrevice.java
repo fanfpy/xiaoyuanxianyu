@@ -4,7 +4,7 @@ import top.fanfpy.xiaoyuanxianyu.entity.Goods;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import java.util.Optional;
+import java.util.List;
 
 public interface GoodsSrevice {
     /**
@@ -39,4 +39,5 @@ public interface GoodsSrevice {
      * @param id 分类id
      * @param pageable 分页参数 */
 //     Optional<Goods> findByClassificationId(Integer id , Pageable pageable);
+    List<Goods> findallGood();
 }

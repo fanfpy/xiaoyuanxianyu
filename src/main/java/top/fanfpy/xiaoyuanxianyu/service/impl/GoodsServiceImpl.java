@@ -8,7 +8,7 @@ import top.fanfpy.xiaoyuanxianyu.service.GoodsSrevice;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import java.util.Optional;
+import java.util.List;
 
 
 @Service
@@ -42,4 +42,10 @@ public class GoodsServiceImpl implements GoodsSrevice {
 //    public Optional<Goods> findByClassificationId(Integer id, Pageable pageable) {
 //        return goodsRepository.findById(id,pageable);
 //    }
+
+
+    @Override
+    public List<Goods> findallGood() {
+        return goodsRepository.findAll();
+    }
 }

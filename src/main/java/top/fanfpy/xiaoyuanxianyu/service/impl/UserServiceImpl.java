@@ -20,14 +20,8 @@ public class UserServiceImpl implements UserService{
     private UserRepository userRepository;
 
     @Override
-    public User login(HttpServletRequest request , String username, String password , ModelMap modelMap) {
-        User user = userRepository.findByUsernameAndPassword(username,password);
-        if (user!=null){
-            request.getSession().setAttribute("login_user",user);
-        }else{
-            modelMap.addAttribute("erro","用户名或密码错误");
-        }
-        return user;
+    public User login(String username, String password) {
+        return userRepository.findByUsernameAndPassword(username,password);
     }
 
     @Override
