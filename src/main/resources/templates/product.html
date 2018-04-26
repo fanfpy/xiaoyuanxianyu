@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:include="layout/layout::head"></div>
+<h2 th:text="商品名称+${good.get().getName()}"></h2>
+
+<hr>
+<h4 th:text="添加时间+${good.get().getStartTime()}"></h4>
+<hr>
+
+<h3 th:text="商品描述+${good.get().getDescrible()}"></h3>
+<hr>
+<h4 th:text="价格+${good.get().getPrice()}"></h4>
+</body>
+</html>

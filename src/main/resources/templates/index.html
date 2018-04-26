@@ -2,19 +2,17 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Title</title>
 </head>
 <body>
 <div th:include="layout/layout::head"></div>
-<div id="goods">
-<table>
-    <tr th:each="good : ${goods}">
-        <td th:text="${good.getName()}"></td>
+<table th:each="good:${goods}">
+    <tr>
+        <td th:text="${good.getName()}" ></td>
         <td th:text="${good.getPrice()}"></td>
-        <td th:text="${good.describle}"></td>
-        <td><img th:src="@{/layui/images/face/0.gif}"></td>
+        <td><img th:src="@{layui/images/face/0.gif}" src=""/></td>
+        <td><a th:href="@{product/{goodid} (goodid=${good.getId()})}">详情</a></td>
     </tr>
 </table>
-</div>
 </body>
 </html>

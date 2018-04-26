@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -47,5 +48,10 @@ public class GoodsServiceImpl implements GoodsSrevice {
     @Override
     public List<Goods> findallGood() {
         return goodsRepository.findAll();
+    }
+
+    @Override
+    public Optional<Goods> findById(Integer id) {
+        return goodsRepository.findById(id);
     }
 }

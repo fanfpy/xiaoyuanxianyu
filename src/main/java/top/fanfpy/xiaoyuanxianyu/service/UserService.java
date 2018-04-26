@@ -1,10 +1,9 @@
 package top.fanfpy.xiaoyuanxianyu.service;
 
 
-import org.springframework.ui.ModelMap;
 import top.fanfpy.xiaoyuanxianyu.entity.User;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.Optional;
 
 /**
  * @author fanfp
@@ -38,4 +37,9 @@ public interface UserService {
      * @param id 用户id
      * */
     void delUser(Integer id);
+
+    /**
+     * 通过id查询用户
+     * */
+    Optional<User> finaUserId(Integer id);
 }

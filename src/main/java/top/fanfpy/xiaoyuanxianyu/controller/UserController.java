@@ -34,4 +34,13 @@ public class UserController {
             return "user/toLogin";
         }
     }
+
+    @GetMapping("/")
+    public String userIndex(HttpServletRequest request){
+        //验证是否登陆
+        if (request.getSession().getAttribute("user")==null){
+            return "redirect:/";
+        }
+        return "user/index";
+    }
 }

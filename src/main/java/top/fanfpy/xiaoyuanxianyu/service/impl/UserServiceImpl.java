@@ -2,12 +2,11 @@ package top.fanfpy.xiaoyuanxianyu.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.ModelMap;
 import top.fanfpy.xiaoyuanxianyu.entity.User;
 import top.fanfpy.xiaoyuanxianyu.repository.UserRepository;
 import top.fanfpy.xiaoyuanxianyu.service.UserService;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.Optional;
 
 /**
  * @author fanfp
@@ -38,4 +37,11 @@ public class UserServiceImpl implements UserService{
     public void delUser(Integer id) {
         userRepository.deleteById(id);
     }
+
+    @Override
+    public Optional<User> finaUserId(Integer id) {
+        return userRepository.findById(id);
+    }
+
+
 }
