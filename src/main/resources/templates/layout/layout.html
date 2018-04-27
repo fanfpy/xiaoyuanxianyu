@@ -11,7 +11,7 @@
 <body>
     <div th:fragment="head">
         <a href="/">首页</a>
-        <a th:if="${session.user==null}" th:href="@{user/login.to}">登陆</a>
+        <a th:if="${session.user==null}" href="/user/login.to">登陆</a>
         <a th:if="${session.user!=null}" th:text="${session.user.getUsername()}" href="/user/"></a>
     </div>
 </body>
