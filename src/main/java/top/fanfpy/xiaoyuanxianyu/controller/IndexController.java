@@ -12,14 +12,10 @@ import top.fanfpy.xiaoyuanxianyu.service.UserService;
 public class IndexController {
     @Autowired
     GoodsSrevice goodsSrevice;
-    @Autowired
-    UserService userService;
 
     @GetMapping("/")
     public String index(ModelMap modelMap){
         modelMap.addAttribute("goods",goodsSrevice.findallGood());
         return "index";
     }
-
-
 }
