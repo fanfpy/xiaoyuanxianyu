@@ -7,15 +7,15 @@ import top.fanfpy.xiaoyuanxianyu.entity.Result;
  * @date 2018/4/29
  **/
 public class ResultUtils {
-    public static Result success(Object object){
-        Result result = new Result();
+    public static Result<Object> success(Object object){
+        Result<Object> result = new Result<>();
         result.setCode(0);
         result.setMsg("成功");
         result.setDate(object);
         return result;
     }
 
-    public static Result succes(){
+    public static Result<Object> succes(){
         return success(null);
     }
 

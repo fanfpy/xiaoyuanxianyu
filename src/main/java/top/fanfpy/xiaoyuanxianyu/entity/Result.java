@@ -36,4 +36,12 @@ public class Result<T> {
         this.date = date;
     }
 
+    @Override
+    public String toString() {
+        return "Result{" +
+                "code=" + code +
+                ", msg='" + msg + '\'' +
+                ", date=" + date +
+                '}';
+    }
 }
