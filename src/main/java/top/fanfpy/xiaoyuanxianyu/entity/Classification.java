@@ -24,15 +24,9 @@ public class Classification {
     private Integer number;
 
     @NotNull(message = "状态0 正常 1暂停")
+    @Length(min = 0,max = 2)
     private Byte status;
 
-    public Classification(){}
-
-    public Classification(@NotNull(message = "分类名") String name, @Min(0) @NotNull(message = "该分类下商品数量") Integer number, @NotNull(message = "状态0 正常 1暂停") Byte status) {
-        this.name = name;
-        this.number = number;
-        this.status = status;
-    }
 
     public Integer getId() {
         return id;

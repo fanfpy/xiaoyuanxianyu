@@ -1,6 +1,6 @@
 package top.fanfpy.xiaoyuanxianyu.utils;
 
-import top.fanfpy.xiaoyuanxianyu.entity.Result;
+import top.fanfpy.xiaoyuanxianyu.VO.Result;
 
 /**
  * @author fanfp

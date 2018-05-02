@@ -1,16 +1,14 @@
 package top.fanfpy.xiaoyuanxianyu.web.api;
 
-import org.omg.PortableInterceptor.INACTIVE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import top.fanfpy.xiaoyuanxianyu.entity.Result;
+import top.fanfpy.xiaoyuanxianyu.VO.Result;
 import top.fanfpy.xiaoyuanxianyu.repository.UserRepository;
 import top.fanfpy.xiaoyuanxianyu.entity.User;
 import top.fanfpy.xiaoyuanxianyu.utils.ResultUtils;
 
 import javax.validation.Valid;
-import java.util.List;
 
 /**
  * @author fanfp

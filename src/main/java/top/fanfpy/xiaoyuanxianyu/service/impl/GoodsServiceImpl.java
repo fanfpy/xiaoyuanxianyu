@@ -15,14 +15,9 @@ import java.util.Optional;
 @Service
 public class GoodsServiceImpl implements GoodsSrevice {
 
+
     @Autowired
     private GoodsRepository goodsRepository;
-
-
-    @Override
-    public Goods addGoods(Goods goods) {
-        return goodsRepository.save(goods);
-    }
 
     @Override
     public void delGoods(Integer id) {
@@ -30,7 +25,7 @@ public class GoodsServiceImpl implements GoodsSrevice {
     }
 
     @Override
-    public Goods updateGoods(Goods goods) {
+    public Goods save(Goods goods) {
         return goodsRepository.save(goods);
     }
 
@@ -38,12 +33,6 @@ public class GoodsServiceImpl implements GoodsSrevice {
     public Page<Goods> findAll(Pageable pageable) {
         return goodsRepository.findAll(pageable);
     }
-
-//    @Override
-//    public Optional<Goods> findByClassificationId(Integer id, Pageable pageable) {
-//        return goodsRepository.findById(id,pageable);
-//    }
-
 
     @Override
     public List<Goods> findallGood() {

@@ -39,9 +39,6 @@ public class User {
     @Email
     private String email;
 
-    @Column(name = "create_at")
-    @NotNull(message = "创建时间不能为空")
-    private String createAt;
 
     @NotNull(message = "发布数不能为空")
     private Integer goodsNum;
@@ -49,8 +46,6 @@ public class User {
     @NotNull(message = "权限值默认为10")
     private Byte power;
 
-    @NotNull(message = "最近登陆时间")
-    private String lastLogin;
 
     @NotNull(message = "是否冻结默认为0，1为未激活，2为封禁")
     private Byte status ;
@@ -58,21 +53,6 @@ public class User {
     @NotNull(message = "用户头像")
     private String userImg;
 
-    public User(){}
-
-    public User(@NotNull(message = "手机号不能为空") @Length(min = 11, message = "手机号") String phone, @NotNull(message = "用户名不能为空") @Length(min = 5, message = "用户名不小于五位") String username, String password, @NotNull(message = "qq不能为空") String qq, @NotNull(message = "邮箱不能为空") String email, @NotNull(message = "创建时间不能为空") String createAt, @NotNull(message = "发布数不能为空") Integer goodsNum, @NotNull(message = "权限值默认为10") Byte power, @NotNull(message = "最近登陆时间") String lastLogin, @NotNull(message = "是否冻结默认为0") Byte status, @NotNull(message = "用户头像") String userImg) {
-        this.phone = phone;
-        this.username = username;
-        this.password = password;
-        this.qq = qq;
-        this.email = email;
-        this.createAt = createAt;
-        this.goodsNum = goodsNum;
-        this.power = power;
-        this.lastLogin = lastLogin;
-        this.status = status;
-        this.userImg = userImg;
-    }
 
     public Integer getId() {
         return id;
@@ -122,13 +102,6 @@ public class User {
         this.email = email.trim();
     }
 
-    public String getCreateAt() {
-        return createAt;
-    }
-
-    public void setCreateAt(String createAt) {
-        this.createAt = createAt;
-    }
 
     public Integer getGoodsNum() {
         return goodsNum;
@@ -146,13 +119,6 @@ public class User {
         this.power = power;
     }
 
-    public String getLastLogin() {
-        return lastLogin;
-    }
-
-    public void setLastLogin(String lastLogin) {
-        this.lastLogin = lastLogin;
-    }
 
     public Byte getStatus() {
         return status;
@@ -179,10 +145,8 @@ public class User {
                 ", password='" + password + '\'' +
                 ", qq='" + qq + '\'' +
                 ", email='" + email + '\'' +
-                ", createAt='" + createAt + '\'' +
                 ", goodsNum=" + goodsNum +
                 ", power=" + power +
-                ", lastLogin='" + lastLogin + '\'' +
                 ", status=" + status +
                 ", userImg='" + userImg + '\'' +
                 '}';

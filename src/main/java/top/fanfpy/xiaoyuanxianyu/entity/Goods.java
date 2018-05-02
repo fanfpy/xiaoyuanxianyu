@@ -15,11 +15,11 @@ public class Goods {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull(message = "商品所在分类")
-    private Integer classificationId;
-
     @NotNull(message = "对应的用户")
     private Integer userId;
+
+    @NotNull(message = "商品所在分类")
+    private Integer classificationId;
 
     @NotNull(message = "商品名称")
     private String name;
@@ -28,11 +28,6 @@ public class Goods {
     @Column(name = "price" ,precision = 11,scale = 2)
     private Float price;
 
-    @NotNull(message = "创建时间")
-    private String startTime;
-
-    @NotNull(message = "擦亮时间")
-    private String polishTime;
 
     @NotNull(message = "评论数量")
     private Integer commetNum;
@@ -47,8 +42,6 @@ public class Goods {
         this.userId = userId;
         this.name = name;
         this.price = price;
-        this.startTime = startTime;
-        this.polishTime = polishTime;
         this.commetNum = commetNum;
         this.describle = describle;
     }
@@ -93,21 +86,6 @@ public class Goods {
         this.price = price;
     }
 
-    public String getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getPolishTime() {
-        return polishTime;
-    }
-
-    public void setPolishTime(String polishTime) {
-        this.polishTime = polishTime;
-    }
 
     public Integer getCommetNum() {
         return commetNum;
@@ -133,8 +111,6 @@ public class Goods {
                 ", userId=" + userId +
                 ", name='" + name + '\'' +
                 ", price=" + price +
-                ", startTime='" + startTime + '\'' +
-                ", polishTime='" + polishTime + '\'' +
                 ", commetNum=" + commetNum +
                 ", describle='" + describle + '\'' +
                 '}';

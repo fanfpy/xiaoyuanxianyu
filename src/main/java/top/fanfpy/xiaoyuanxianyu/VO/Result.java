@@ -1,4 +1,4 @@
-package top.fanfpy.xiaoyuanxianyu.entity;
+package top.fanfpy.xiaoyuanxianyu.VO;
 
 public class Result<T> {
 

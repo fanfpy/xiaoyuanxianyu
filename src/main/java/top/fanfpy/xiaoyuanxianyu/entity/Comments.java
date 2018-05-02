@@ -16,26 +16,13 @@ public class Comments {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull(message = "对应用户ID不能为空")
     private Integer userId;
 
-    @NotNull(message = "对应商品id不能为空")
     private Integer goodsId;
 
-    @NotNull(message = "评论时间不能为空")
-    private String createAt;
 
-    @NotNull(message = "评论内容不能为空")
     private String content;
 
-    public Comments(){}
-
-    public Comments(@NotNull(message = "对应用户ID不能为空") Integer userId, @NotNull(message = "对应商品id不能为空") Integer goodsId, @NotNull(message = "评论时间不能为空") String createAt, @NotNull(message = "评论内容不能为空") String content) {
-        this.userId = userId;
-        this.goodsId = goodsId;
-        this.createAt = createAt;
-        this.content = content;
-    }
 
     public Integer getId() {
         return id;
@@ -61,13 +48,6 @@ public class Comments {
         this.goodsId = goodsId;
     }
 
-    public String getCreateAt() {
-        return createAt;
-    }
-
-    public void setCreateAt(String createAt) {
-        this.createAt = createAt == null ? null : createAt.trim();
-    }
 
     public String getContent() {
         return content;
@@ -83,7 +63,6 @@ public class Comments {
                 "id=" + id +
                 ", userId=" + userId +
                 ", goodsId=" + goodsId +
-                ", createAt='" + createAt + '\'' +
                 ", content='" + content + '\'' +
                 '}';
     }
