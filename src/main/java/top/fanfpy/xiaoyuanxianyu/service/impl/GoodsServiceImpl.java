@@ -6,6 +6,7 @@ import top.fanfpy.xiaoyuanxianyu.entity.Classification;
 import top.fanfpy.xiaoyuanxianyu.entity.Goods;
 import top.fanfpy.xiaoyuanxianyu.repository.ClassificationRepository;
 import top.fanfpy.xiaoyuanxianyu.repository.GoodsRepository;
+import top.fanfpy.xiaoyuanxianyu.repository.UserRepository;
 import top.fanfpy.xiaoyuanxianyu.service.GoodsSrevice;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -22,6 +23,8 @@ public class GoodsServiceImpl implements GoodsSrevice {
     private GoodsRepository goodsRepository;
     @Autowired
     private ClassificationRepository classificationRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     @Override
     public void delGoods(Integer id) {
@@ -30,15 +33,8 @@ public class GoodsServiceImpl implements GoodsSrevice {
 
     @Override
     public Goods addGood(Goods goods) {
-
-        //当前分类
-        Optional<Classification> classification = classificationRepository.findById(goods.getClassificationId());
-        Classification classification1 = new Classification();
-        classification1.setId(classification.get().getId());
-        classification1.setName(classification.get().getName());
-        classification1.setStatus(classification.get().getStatus());
-        classification1.setNumber(classification.get().getNumber()+1);
-        classificationRepository.save(classification1);
+        classificationRepository.addNumber(goods.getClassificationId());
+        userRepository.addGoodsNum(goods.getUserId());
         return goodsRepository.save(goods);
     }
 

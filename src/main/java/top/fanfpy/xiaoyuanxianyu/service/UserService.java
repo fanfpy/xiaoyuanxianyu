@@ -19,18 +19,9 @@ public interface UserService {
     User login(String username, String password);
 
     /**
-     * 注册
-     * @param user 用户对象
-     * @return user
+     * @param user 用户
      * */
-    User addUser(User user);
-
-    /**
-     * 修改用户
-     * @param user yonghu
-     * @return 返回修改后的值
-     * */
-    User upDate(User user);
+    User save(User user);
 
     /**
      * 通过id删除用户

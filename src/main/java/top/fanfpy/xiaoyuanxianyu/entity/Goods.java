@@ -10,7 +10,7 @@ import java.math.BigDecimal;
  * @date 2018/4/23
  * */
 @Entity
-@Table(name = "googs")
+@Table(name = "goods")
 public class Goods {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +29,15 @@ public class Goods {
     @Column(name = "price" ,precision = 11,scale = 2)
     private BigDecimal price;
 
+    private byte status;
+
+    public byte getStatus() {
+        return status;
+    }
+
+    public void setStatus(byte status) {
+        this.status = status;
+    }
 
     @NotNull(message = "评论数量")
     private Integer commetNum;
@@ -36,7 +45,6 @@ public class Goods {
     @NotNull(message = "详细信息")
     private String describle;
 
-    public Goods(){};
 
 
     public Integer getId() {

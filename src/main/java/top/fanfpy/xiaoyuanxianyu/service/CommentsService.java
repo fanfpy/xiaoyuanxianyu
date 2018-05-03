@@ -8,7 +8,7 @@ import top.fanfpy.xiaoyuanxianyu.entity.Comments;
  * */
 public interface CommentsService {
     /**
-     *增加评论
+     *增加评论 商品品论字段下自增1
      * @param comments 评论
      * */
     Comments addComment(Comments comments);

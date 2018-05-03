@@ -20,13 +20,10 @@ public class ClassificationServiceImplTest {
     @Test
     public void save() {
         Classification  classification = new Classification();
-//        classification.setId(1);
         classification.setName("手机");
         classification.setNumber(0);
-        classification.setStatus((byte) 1);
-
+        classification.setStatus((byte) 0);
         Classification res = classificationService.save(classification);
-
         Assert.assertNotNull(res);
     }
 }

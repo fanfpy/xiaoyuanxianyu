@@ -1,6 +1,7 @@
 package top.fanfpy.xiaoyuanxianyu.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import top.fanfpy.xiaoyuanxianyu.entity.User;
 
 /**
@@ -24,4 +25,10 @@ public interface UserRepository extends JpaRepository<User, Integer> {
      * */
     User findByUsernameAndPassword(String username , String password);
 
+
+    /**
+     * 用户发布数量
+     * */
+    @Query(value = "update user set goods_num=goods_num+1 where id = ?1",nativeQuery = true)
+    void addGoodsNum(Integer id);
 }

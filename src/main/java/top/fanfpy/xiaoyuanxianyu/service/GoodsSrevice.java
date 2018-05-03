@@ -11,7 +11,7 @@ public interface GoodsSrevice {
 
     /**
      * @param goods
-     *增加商品 且增加所在分类下的数字
+     *增加商品 且增加所在分类下的数字 用户对应的上架数量
      * */
     Goods addGood(Goods goods);
 
