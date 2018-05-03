@@ -15,20 +15,15 @@ public interface ClassificationService {
      * */
     List<Classification> listClassification();
 
-    /**
-     * @param classification 分类
-     * @return 返回增加列表的信息
-     * */
-    Classification addClassification(Classification classification);
-
     /**通过id删除分类
      * @param id 分类id
      * */
     void delClassification(Integer id);
 
+
     /**
      * @param classification 分类
-     * @return 返回修改的信息
+     * @return 返回增加列表的信息
      * */
-    Classification updateClassification(Classification classification);
+    Classification save(Classification classification);
 }

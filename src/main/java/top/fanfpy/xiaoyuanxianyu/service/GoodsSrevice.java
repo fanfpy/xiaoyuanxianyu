@@ -10,9 +10,15 @@ import java.util.Optional;
 public interface GoodsSrevice {
 
     /**
+     * @param goods
+     *增加商品 且增加所在分类下的数字
+     * */
+    Goods addGood(Goods goods);
+
+    /**
      * @param goods 商品对象
      * */
-    Goods save(Goods goods);
+    Goods upGoods(Goods goods);
     /**
      * 删除商品
      * @param id 商品id

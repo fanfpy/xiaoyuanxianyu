@@ -21,10 +21,6 @@ public class ClassificationServiceImpl implements ClassificationService {
         return classificationRepository.findAll();
     }
 
-    @Override
-    public Classification addClassification(Classification classification) {
-        return classificationRepository.save(classification);
-    }
 
     @Override
     public void delClassification(Integer id) {
@@ -32,7 +28,7 @@ public class ClassificationServiceImpl implements ClassificationService {
     }
 
     @Override
-    public Classification updateClassification(Classification classification) {
-    return classificationRepository.save(classification);
+    public Classification save(Classification classification) {
+        return classificationRepository.save(classification);
     }
 }

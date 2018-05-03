@@ -2,6 +2,7 @@ package top.fanfpy.xiaoyuanxianyu.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
 
 /**
  * 商品表
@@ -26,7 +27,7 @@ public class Goods {
 
     @NotNull(message = "价格")
     @Column(name = "price" ,precision = 11,scale = 2)
-    private Float price;
+    private BigDecimal price;
 
 
     @NotNull(message = "评论数量")
@@ -37,14 +38,6 @@ public class Goods {
 
     public Goods(){};
 
-    public Goods(@NotNull(message = "商品所在分类") Integer classificationId, @NotNull(message = "对应的用户") Integer userId, @NotNull(message = "商品名称") String name, @NotNull(message = "价格") Float price, @NotNull(message = "创建时间") String startTime, @NotNull(message = "擦亮时间") String polishTime, @NotNull(message = "评论数量") Integer commetNum, @NotNull(message = "详细信息") String describle) {
-        this.classificationId = classificationId;
-        this.userId = userId;
-        this.name = name;
-        this.price = price;
-        this.commetNum = commetNum;
-        this.describle = describle;
-    }
 
     public Integer getId() {
         return id;
@@ -78,11 +71,11 @@ public class Goods {
         this.name = name;
     }
 
-    public Float getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(Float price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
