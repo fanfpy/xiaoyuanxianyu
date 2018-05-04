@@ -29,6 +29,9 @@ public class Goods {
     @Column(name = "price" ,precision = 11,scale = 2)
     private BigDecimal price;
 
+
+    private String img;
+
     private byte status;
 
     public byte getStatus() {
@@ -104,16 +107,11 @@ public class Goods {
         this.describle = describle;
     }
 
-    @Override
-    public String toString() {
-        return "Goods{" +
-                "id=" + id +
-                ", classificationId=" + classificationId +
-                ", userId=" + userId +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", commetNum=" + commetNum +
-                ", describle='" + describle + '\'' +
-                '}';
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 }

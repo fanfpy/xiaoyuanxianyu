@@ -3,7 +3,7 @@ package top.fanfpy.xiaoyuanxianyu.web.api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import top.fanfpy.xiaoyuanxianyu.VO.Result;
+import top.fanfpy.xiaoyuanxianyu.VO.ResultVO;
 import top.fanfpy.xiaoyuanxianyu.repository.UserRepository;
 import top.fanfpy.xiaoyuanxianyu.entity.User;
 import top.fanfpy.xiaoyuanxianyu.utils.ResultUtils;
@@ -26,14 +26,14 @@ public class UserApiController {
      * 获取全部的user信息
      * */
     @GetMapping(value = "/")
-    public Result<Object> getUsers(){
+    public ResultVO<Object> getUsers(){
         return ResultUtils.success(userRepository.findAll());
     }
     /**
      * 添加一个新用户
      * */
     @PostMapping(value = "/")
-    public Result addUser(@Valid User user , BindingResult bindingResult){
+    public ResultVO addUser(@Valid User user , BindingResult bindingResult){
         if (bindingResult.hasErrors()){
             String str = null;
             for (int i = 0; i < bindingResult.getAllErrors().size(); i++) {
@@ -47,7 +47,7 @@ public class UserApiController {
      * 通过id获取用户信息
      * */
     @GetMapping(value = "/{id}")
-    public Result getOneUser(@PathVariable("id") Integer id){
+    public ResultVO<Object> getOneUser(@PathVariable("id") Integer id){
         return ResultUtils.success(userRepository.findById(id));
     }
     /**
@@ -56,7 +56,7 @@ public class UserApiController {
      * 打印错误
      * */
     @PutMapping(value = "/{id}")
-    public Result upateUser(@Valid User user, BindingResult bindingResult, @PathVariable("id") Integer id){
+    public ResultVO upateUser(@Valid User user, BindingResult bindingResult, @PathVariable("id") Integer id){
         if (bindingResult.hasErrors()){
             return ResultUtils.erro(bindingResult.getFieldError().getDefaultMessage());
         }
@@ -74,7 +74,7 @@ public class UserApiController {
      *  通过name获取用户信息
     * */
     @GetMapping(value = "/name/{name}")
-    public Result<Object> getUserName(@Valid @PathVariable("name") String name){
+    public ResultVO<Object> getUserName(@Valid @PathVariable("name") String name){
         return ResultUtils.success(userRepository.findByUsername(name));
     }
 }

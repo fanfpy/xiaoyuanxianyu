@@ -20,7 +20,11 @@ public class CommentsServiceImpl implements CommentsService {
 
     @Override
     public Comments addComment(Comments comments) {
-        goodsRepository.addCommentNum(comments.getGoodsId());
+        //取出对应的商品对象
+        Goods good = goodsRepository.findById(comments.getGoodsId()).get();
+        //商品评论字段加一
+        good.setCommetNum(good.getCommetNum()+1);
+        goodsRepository.save(good);
         return commentsRepository.save(comments);
     }
 

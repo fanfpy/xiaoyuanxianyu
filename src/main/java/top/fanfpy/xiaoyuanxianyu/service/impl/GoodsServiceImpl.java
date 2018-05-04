@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.fanfpy.xiaoyuanxianyu.entity.Classification;
 import top.fanfpy.xiaoyuanxianyu.entity.Goods;
+import top.fanfpy.xiaoyuanxianyu.entity.User;
 import top.fanfpy.xiaoyuanxianyu.repository.ClassificationRepository;
 import top.fanfpy.xiaoyuanxianyu.repository.GoodsRepository;
 import top.fanfpy.xiaoyuanxianyu.repository.UserRepository;
@@ -27,14 +28,28 @@ public class GoodsServiceImpl implements GoodsSrevice {
     private UserRepository userRepository;
 
     @Override
+    public List<Goods> listGoods() {
+        return goodsRepository.findAll();
+    }
+
+    @Override
     public void delGoods(Integer id) {
         goodsRepository.deleteById(id);
     }
 
     @Override
     public Goods addGood(Goods goods) {
-        classificationRepository.addNumber(goods.getClassificationId());
-        userRepository.addGoodsNum(goods.getUserId());
+        //取出对应的类目
+        Classification classification = classificationRepository.findById(goods.getClassificationId()).get();
+        //字段加1
+        classification.setNumber(classification.getNumber()+1);
+        classificationRepository.save(classification);
+
+        //取出对应字段的用户
+        User user= userRepository.findById(goods.getUserId()).get();
+        //加一
+        user.setGoodsNum(goods.getUserId()+1);
+        userRepository.save(user);
         return goodsRepository.save(goods);
     }
 
@@ -56,5 +71,10 @@ public class GoodsServiceImpl implements GoodsSrevice {
     @Override
     public Optional<Goods> findById(Integer id) {
         return goodsRepository.findById(id);
+    }
+
+    @Override
+    public List<Goods> findByClassifiaction(Integer classifiactionId) {
+        return goodsRepository.findByClassificationId(classifiactionId);
     }
 }

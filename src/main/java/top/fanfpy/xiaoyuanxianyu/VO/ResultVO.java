@@ -1,6 +1,7 @@
 package top.fanfpy.xiaoyuanxianyu.VO;
 
-public class Result<T> {
+
+public class ResultVO<T> {
 
     /**错误码*/
     private Integer code;

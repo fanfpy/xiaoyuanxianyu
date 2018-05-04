@@ -20,13 +20,13 @@ public class UserServiceImplTest {
     @Test
     public void save() {
         User user = new User();
-        user.setUsername("烦fpy");
+        user.setUsername("admin");
         user.setPassword("123456");
-        user.setEmail("fanfpy@qq.com");
+        user.setEmail("110@qq.com");
         user.setGoodsNum(0);
         user.setPhone("17602917228");
         user.setPower((byte) 0);
-        user.setQq("2324802641");
+        user.setQq("110");
         user.setUserImg("http:xxx.xxx.jpg");
         user.setStatus((byte) 0);
         Assert.assertNotNull(userService.save(user));

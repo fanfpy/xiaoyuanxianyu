@@ -20,7 +20,7 @@ public class ClassificationServiceImplTest {
     @Test
     public void save() {
         Classification  classification = new Classification();
-        classification.setName("手机");
+        classification.setName("书籍");
         classification.setNumber(0);
         classification.setStatus((byte) 0);
         Classification res = classificationService.save(classification);

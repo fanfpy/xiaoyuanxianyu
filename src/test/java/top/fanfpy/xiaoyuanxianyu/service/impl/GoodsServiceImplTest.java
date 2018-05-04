@@ -21,14 +21,13 @@ public class GoodsServiceImplTest {
     @Test
     public void addGood() {
         Goods goods = new Goods();
-        goods.setName("小米mix2s");
-        goods.setClassificationId(2);
+        goods.setName("Mysql从入门到跑路");
+        goods.setClassificationId(3);
         goods.setUserId(2);
-        goods.setDescrible("描述：一面科技一面艺术");
+        goods.setDescrible("描述：Mysql从入门到跑路");
         goods.setPrice(new BigDecimal(2999.9));
         goods.setCommetNum(0);
         goods.setStatus((byte) 0);
-
 
         Assert.assertNotNull(goodsService.addGood(goods));
     }

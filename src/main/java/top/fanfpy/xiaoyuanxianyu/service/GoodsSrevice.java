@@ -9,6 +9,13 @@ import java.util.Optional;
 
 public interface GoodsSrevice {
 
+
+    /**
+     * 查询所有商品
+     * @return 返回集合
+     * */
+    List<Goods> listGoods();
+
     /**
      * @param goods
      *增加商品 且增加所在分类下的数字 用户对应的上架数量
@@ -38,4 +45,6 @@ public interface GoodsSrevice {
      * 通过id查商品
      * */
     Optional<Goods> findById(Integer id);
+
+    List<Goods> findByClassifiaction(Integer classifiactionId);
 }
