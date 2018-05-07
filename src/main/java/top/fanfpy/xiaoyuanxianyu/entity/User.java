@@ -50,6 +50,7 @@ public class User {
     @NotNull(message = "是否冻结默认为0，1为未激活，2为封禁")
     private Byte status ;
 
+    @Column(name = "user_img")
     @NotNull(message = "用户头像")
     private String userImg;
 
