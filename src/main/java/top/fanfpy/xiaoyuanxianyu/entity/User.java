@@ -43,6 +43,10 @@ public class User {
     @NotNull(message = "发布数不能为空")
     private Integer goodsNum;
 
+    @Column(name = "open_id")
+    @NotNull(message = "不为空")
+    private String openId;
+
     @NotNull(message = "权限值默认为10")
     private Byte power;
 
@@ -137,6 +141,14 @@ public class User {
         this.userImg = userImg;
     }
 
+    public String getOpenId() {
+        return openId;
+    }
+
+    public void setOpenId(String openId) {
+        this.openId = openId;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -147,6 +159,7 @@ public class User {
                 ", qq='" + qq + '\'' +
                 ", email='" + email + '\'' +
                 ", goodsNum=" + goodsNum +
+                ", openId='" + openId + '\'' +
                 ", power=" + power +
                 ", status=" + status +
                 ", userImg='" + userImg + '\'' +

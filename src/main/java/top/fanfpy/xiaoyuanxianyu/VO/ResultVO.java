@@ -10,7 +10,7 @@ public class ResultVO<T> {
     private String msg;
 
     /**内容*/
-    private T date;
+    private T data;
 
 
     public Integer getCode() {
@@ -29,20 +29,20 @@ public class ResultVO<T> {
         this.msg = msg;
     }
 
-    public T getDate() {
-        return date;
+    public T getData() {
+        return data;
     }
 
-    public void setDate(T date) {
-        this.date = date;
+    public void setData(T data) {
+        this.data = data;
     }
 
     @Override
     public String toString() {
-        return "Result{" +
+        return "ResultVO{" +
                 "code=" + code +
                 ", msg='" + msg + '\'' +
-                ", date=" + date +
+                ", data=" + data +
                 '}';
     }
 }

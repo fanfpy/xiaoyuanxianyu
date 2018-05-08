@@ -11,7 +11,7 @@ public class ResultUtils {
         ResultVO<Object> result = new ResultVO<>();
         result.setCode(0);
         result.setMsg("成功");
-        result.setDate(object);
+        result.setData(object);
         return result;
     }
 
