@@ -47,4 +47,6 @@ public interface GoodsSrevice {
     Optional<Goods> findById(Integer id);
 
     List<Goods> findByClassifiaction(Integer classifiactionId);
+
+    //
 }

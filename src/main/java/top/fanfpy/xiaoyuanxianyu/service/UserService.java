@@ -33,4 +33,9 @@ public interface UserService {
      * 通过id查询用户
      * */
     Optional<User> finaUserId(Integer id);
+
+    /**
+     * 通过商品id查询用户
+     * */
+//    User finaUserByGoodsId(Integer goodId);
 }

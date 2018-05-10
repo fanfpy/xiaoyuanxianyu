@@ -27,7 +27,6 @@ public class GoodsServiceImplTest {
         goods.setDescrible("描述：Mysql从入门到跑路");
         goods.setPrice(new BigDecimal(2999.9));
         goods.setCommetNum(0);
-        goods.setImg("http://xxx.com/xxx.jpg");
         goods.setStatus((byte) 0);
 
         Assert.assertNotNull(goodsService.addGood(goods));
