@@ -1,6 +1,8 @@
 package top.fanfpy.xiaoyuanxianyu.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import top.fanfpy.xiaoyuanxianyu.entity.Classification;
 import top.fanfpy.xiaoyuanxianyu.entity.Goods;
@@ -76,5 +78,13 @@ public class GoodsServiceImpl implements GoodsSrevice {
     @Override
     public List<Goods> findByClassifiaction(Integer classifiactionId) {
         return goodsRepository.findByClassificationId(classifiactionId);
+    }
+
+    @Override
+    public Page<Goods> findByPageView() {
+//        Sort sort = new Sort(Sort.Direction.DESC,"id");
+
+        Pageable pageable =new PageRequest(0,5,Sort.Direction.DESC,"PageView");
+        return goodsRepository.findAll(pageable);
     }
 }

@@ -48,5 +48,9 @@ public interface GoodsSrevice {
 
     List<Goods> findByClassifiaction(Integer classifiactionId);
 
-    //
+    /**
+     * 分页查询
+     * @return 商品页
+     * */
+    Page<Goods> findByPageView();
 }

@@ -9,6 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import top.fanfpy.xiaoyuanxianyu.entity.Goods;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 
 @RunWith(SpringRunner.class)
@@ -21,14 +22,21 @@ public class GoodsServiceImplTest {
     @Test
     public void addGood() {
         Goods goods = new Goods();
-        goods.setName("Mysql从入门到跑路");
+        goods.setUserId(3);
         goods.setClassificationId(3);
-        goods.setUserId(2);
-        goods.setDescrible("描述：Mysql从入门到跑路");
-        goods.setPrice(new BigDecimal(2999.9));
         goods.setCommetNum(0);
+        goods.setDescrible("描述：Mysql从入门到跑路");
+        goods.setName("Mysql从入门到跑路");
+        goods.setPrice(new BigDecimal(2999.9));
         goods.setStatus((byte) 0);
-
+        goods.setPageView(0);
         Assert.assertNotNull(goodsService.addGood(goods));
+    }
+
+    @Test
+    public void findByPageView() {
+        List<Goods> goodsList = goodsService.findByPageView().getContent();
+        System.out.println(goodsList);
+        Assert.assertNotNull(goodsList);
     }
 }

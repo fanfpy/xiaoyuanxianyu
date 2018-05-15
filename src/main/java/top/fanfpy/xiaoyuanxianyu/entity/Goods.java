@@ -13,6 +13,7 @@ import java.math.BigDecimal;
 @Table(name = "goods")
 public class Goods {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private Integer userId;
@@ -112,5 +113,21 @@ public class Goods {
 
     public void setUpdateTime(String updateTime) {
         this.updateTime = updateTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Goods{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", classificationId=" + classificationId +
+                ", commetNum=" + commetNum +
+                ", describle='" + describle + '\'' +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", status=" + status +
+                ", pageView=" + pageView +
+                ", updateTime='" + updateTime + '\'' +
+                '}';
     }
 }

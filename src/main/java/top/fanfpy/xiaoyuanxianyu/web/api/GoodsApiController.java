@@ -1,6 +1,7 @@
 package top.fanfpy.xiaoyuanxianyu.web.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,39 +36,38 @@ public class GoodsApiController {
     @Autowired
     GoodsImgService goodsImgService;
 
-    @GetMapping(value = "/list")
-    public ResultVO<Object> goodList(){
+    @GetMapping("/hot/list")
+    public ResultVO<Object> getHotGoodsList(){
 
-        //返回所有分类
-        List<Classification> classificationList = classificationService.listClassification();
+        List<GoodsInfoVO> goodsInfoVOList = new ArrayList<>();
 
-        List<ClassVO> classVOList = new ArrayList<>();
+        List<Goods> goodsList = goodsSrevice.findByPageView().getContent();
+        for (Goods goods:goodsList) {
+            GoodsInfoVO goodsInfoVO = new GoodsInfoVO();
 
-        for (Classification classification:classificationList) {
-            List<Goods> goodsList = goodsSrevice.findByClassifiaction(classification.getId());
-            List<GoodsVO> goodsVOList = new ArrayList<>();
-            ClassVO classVO = new ClassVO();
-            for (Goods goods:goodsList) {
-                GoodsVO goodsVO = new GoodsVO();
-                goodsVO.setUserId(goods.getUserId());
-                goodsVO.setCommetNum(goods.getCommetNum());
-                goodsVO.setDescrible(goods.getDescrible());
-                goodsVO.setGoodsId(goods.getId());
-                goodsVO.setStatus(goods.getStatus());
-                goodsVO.setGoodsName(goods.getName());
-                goodsVO.setGoodsPrice(goods.getPrice());
-
-                goodsVOList.add(goodsVO);
+            List<String> stringList = new ArrayList<>();
+            User user = userService.finaUserId(goods.getUserId()).get();
+            for (GoodsImg goodsImg:goodsImgService.finaByGoodsId(goods.getId())) {
+                stringList.add(goodsImg.getImgUrl());
             }
-            classVO.setClassificationId(classification.getId());
-            classVO.setClassificationName(classification.getName());
-            classVO.setClassificationStatus(classification.getStatus());
-            classVO.setGoodsList(goodsVOList);
-            classVOList.add(classVO);
+
+            goodsInfoVO.setGoodsId(goods.getId());
+            goodsInfoVO.setUserId(goods.getUserId());
+            goodsInfoVO.setUserName(user.getUsername());
+            goodsInfoVO.setUserImg(user.getUserImg());
+            goodsInfoVO.setGoodsTitlie(goods.getName());
+            goodsInfoVO.setPrice(goods.getPrice());
+            goodsInfoVO.setPageView(goods.getPageView());
+            goodsInfoVO.setStatus(goods.getStatus());
+            goodsInfoVO.setDescrible(goods.getDescrible());
+            goodsInfoVO.setUpdateTime(goods.getUpdateTime());
+            goodsInfoVO.setGoodsImgList(stringList);
+
+            goodsInfoVOList.add(goodsInfoVO);
+
         }
 
-
-        return ResultUtils.success(classVOList);
+        return ResultUtils.success(goodsInfoVOList);
     }
 
     @GetMapping(value = "/{id}")
@@ -80,12 +80,17 @@ public class GoodsApiController {
             stringList.add(goodsImg.getImgUrl());
         }
 
+        goodsInfoVO.setGoodsId(id);
         goodsInfoVO.setUserId(goods.getUserId());
-        goodsInfoVO.setUserImg(user.getUserImg());
         goodsInfoVO.setUserName(user.getUsername());
-        goodsInfoVO.setUpdateTime(goods.getUpdateTime());
+        goodsInfoVO.setUserImg(user.getUserImg());
+        goodsInfoVO.setGoodsTitlie(goods.getName());
+        goodsInfoVO.setPrice(goods.getPrice());
+        goodsInfoVO.setPageView(goods.getPageView());
+        goodsInfoVO.setStatus(goods.getStatus());
         goodsInfoVO.setDescrible(goods.getDescrible());
-        goodsInfoVO.setStringList(stringList);
+        goodsInfoVO.setUpdateTime(goods.getUpdateTime());
+        goodsInfoVO.setGoodsImgList(stringList);
 
         return ResultUtils.success(goodsInfoVO);
     }

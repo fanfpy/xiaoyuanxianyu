@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.Length;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+import java.util.Random;
 
 /**
  * @author fanfp
@@ -54,12 +55,13 @@ public class User {
     @NotNull(message = "是否冻结默认为0，1为未激活，2为封禁")
     private Byte status ;
 
-    @Column(name = "img")
+    @Column(name = "user_img")
     @NotNull(message = "用户头像")
     private String userImg;
 
 
     public Integer getId() {
+        new Random().nextInt();
         return id;
     }
 
