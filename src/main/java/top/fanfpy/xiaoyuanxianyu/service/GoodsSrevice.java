@@ -6,7 +6,9 @@ import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 import java.util.Optional;
-
+/**
+ * @author fanfp
+ * */
 public interface GoodsSrevice {
 
 
@@ -20,7 +22,7 @@ public interface GoodsSrevice {
      * @param goods
      *增加商品 且增加所在分类下的数字 用户对应的上架数量
      * */
-    Goods addGood(Goods goods);
+    Goods saveGood(Goods goods);
 
     /**
      * @param goods 商品对象
@@ -49,8 +51,10 @@ public interface GoodsSrevice {
     List<Goods> findByClassifiaction(Integer classifiactionId);
 
     /**
-     * 分页查询
+     * 分页查询热门商品
      * @return 商品页
+     * @param num 每页显示的内容
+     * @param page 开始页
      * */
-    Page<Goods> findByPageView();
+    Page<Goods> findByHotGoods(Integer page,Integer num);
 }

@@ -7,7 +7,9 @@ import top.fanfpy.xiaoyuanxianyu.repository.GoodsImgRepository;
 import top.fanfpy.xiaoyuanxianyu.service.GoodsImgService;
 
 import java.util.List;
-
+/**
+ * @author fanfp
+ * */
 @Service
 public class GoodsImgServiceImpl implements GoodsImgService {
 

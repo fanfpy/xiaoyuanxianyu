@@ -25,6 +25,7 @@ public interface ClassificationService {
     /**
      * @param classification 分类
      * @return 返回增加列表的信息
+     * 保存分类
      * */
     Classification save(Classification classification);
 }

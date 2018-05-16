@@ -1,9 +1,6 @@
 package top.fanfpy.xiaoyuanxianyu.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -22,6 +19,9 @@ public class Comments {
 
 
     private String content;
+
+    @Column(name = "create_at")
+    private String date;
 
 
     public Integer getId() {
@@ -57,6 +57,14 @@ public class Comments {
         this.content = content == null ? null : content.trim();
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
     @Override
     public String toString() {
         return "Comments{" +
@@ -64,6 +72,7 @@ public class Comments {
                 ", userId=" + userId +
                 ", goodsId=" + goodsId +
                 ", content='" + content + '\'' +
+                ", date='" + date + '\'' +
                 '}';
     }
 }

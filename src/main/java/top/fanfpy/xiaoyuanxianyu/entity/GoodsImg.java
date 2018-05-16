@@ -3,7 +3,9 @@ package top.fanfpy.xiaoyuanxianyu.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+/**
+ * @author fanfp
+ * */
 @Entity
 @Table(name = "goods_img")
 public class GoodsImg {

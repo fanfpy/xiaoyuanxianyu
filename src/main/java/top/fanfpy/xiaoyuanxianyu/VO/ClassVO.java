@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * 商品（包含类目）
+ * 通过分类id 获取所在分类下的商品
  * @author fanfp
  * @date 2018/5/4
  * */
@@ -22,7 +23,7 @@ public class ClassVO {
     private Byte classificationStatus;
 
     @JsonProperty("goods")
-    private List<GoodsVO> goodsList;
+    private List<GoodsInfoVO> goodsList;
 
 
     public Integer getClassificationId() {
@@ -49,11 +50,14 @@ public class ClassVO {
         this.classificationStatus = classificationStatus;
     }
 
-    public List<GoodsVO> getGoodsList() {
-        return goodsList;
-    }
-
-    public void setGoodsList(List<GoodsVO> goodsList) {
-        this.goodsList = goodsList;
+    @Override
+    public String toString() {
+        return "ClassVO{" +
+                "classificationId=" + classificationId +
+                ", classificationName='" + classificationName + '\'' +
+                ", classificationStatus=" + classificationStatus +
+                ", goodsList=" + goodsList +
+                '}';
     }
 }
+

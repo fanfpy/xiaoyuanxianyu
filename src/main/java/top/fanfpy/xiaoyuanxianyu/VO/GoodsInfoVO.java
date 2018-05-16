@@ -32,7 +32,7 @@ public class GoodsInfoVO {
 
     private String describle;
 
-    List<String> GoodsImgList;
+    List<String> goodsimglist;
 
     public Integer getGoodsId() {
         return goodsId;
@@ -107,11 +107,11 @@ public class GoodsInfoVO {
     }
 
     public List<String> getGoodsImgList() {
-        return GoodsImgList;
+        return goodsimglist;
     }
 
     public void setGoodsImgList(List<String> goodsImgList) {
-        GoodsImgList = goodsImgList;
+        goodsimglist = goodsImgList;
     }
 
     public Integer getPageView() {
@@ -120,5 +120,22 @@ public class GoodsInfoVO {
 
     public void setPageView(Integer pageView) {
         this.pageView = pageView;
+    }
+
+    @Override
+    public String toString() {
+        return "GoodsInfoVO{" +
+                "goodsId=" + goodsId +
+                ", userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", userImg='" + userImg + '\'' +
+                ", goodsTitlie='" + goodsTitlie + '\'' +
+                ", price=" + price +
+                ", updateTime='" + updateTime + '\'' +
+                ", pageView=" + pageView +
+                ", status=" + status +
+                ", describle='" + describle + '\'' +
+                ", goodsimglist=" + goodsimglist +
+                '}';
     }
 }

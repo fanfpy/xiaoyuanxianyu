@@ -1,6 +1,9 @@
 package top.fanfpy.xiaoyuanxianyu.VO;
 
-
+/**
+ * @author fanfp
+ * @date 2018/5/5
+ * */
 public class ResultVO<T> {
 
     /**错误码*/

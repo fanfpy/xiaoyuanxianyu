@@ -86,6 +86,7 @@
             <version>0.9.5.2</version>
         </dependency>
 
+        <!--打包为war-->
         <!--<dependency>-->
             <!--<groupId>org.springframework.boot</groupId>-->
             <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->

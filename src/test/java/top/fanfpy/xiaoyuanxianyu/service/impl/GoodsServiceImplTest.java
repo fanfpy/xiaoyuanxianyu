@@ -30,12 +30,12 @@ public class GoodsServiceImplTest {
         goods.setPrice(new BigDecimal(2999.9));
         goods.setStatus((byte) 0);
         goods.setPageView(0);
-        Assert.assertNotNull(goodsService.addGood(goods));
+        Assert.assertNotNull(goodsService.saveGood(goods));
     }
 
     @Test
     public void findByPageView() {
-        List<Goods> goodsList = goodsService.findByPageView().getContent();
+        List<Goods> goodsList = goodsService.findByHotGoods(0,5).getContent();
         System.out.println(goodsList);
         Assert.assertNotNull(goodsList);
     }

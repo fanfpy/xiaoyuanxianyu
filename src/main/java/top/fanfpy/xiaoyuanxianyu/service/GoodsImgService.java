@@ -3,11 +3,13 @@ package top.fanfpy.xiaoyuanxianyu.service;
 import top.fanfpy.xiaoyuanxianyu.entity.GoodsImg;
 
 import java.util.List;
-
+/**
+ * @author fanfp
+ * */
 public interface GoodsImgService {
     /**
-     * @author fanfp
-     * @date 2018/5/10
+     * @param goodsId 商品id
+     * @return 返回商品图片列表
      *通过商品id查询
      * */
     List<GoodsImg> finaByGoodsId(Integer goodsId);

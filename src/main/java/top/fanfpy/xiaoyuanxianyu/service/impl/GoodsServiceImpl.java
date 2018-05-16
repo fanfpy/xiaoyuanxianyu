@@ -17,7 +17,9 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 import java.util.Optional;
 
-
+/**
+ * @author fanfp
+ * */
 @Service
 public class GoodsServiceImpl implements GoodsSrevice {
 
@@ -40,7 +42,7 @@ public class GoodsServiceImpl implements GoodsSrevice {
     }
 
     @Override
-    public Goods addGood(Goods goods) {
+    public Goods saveGood(Goods goods) {
         //取出对应的类目
         Classification classification = classificationRepository.findById(goods.getClassificationId()).get();
         //字段加1
@@ -80,11 +82,10 @@ public class GoodsServiceImpl implements GoodsSrevice {
         return goodsRepository.findByClassificationId(classifiactionId);
     }
 
-    @Override
-    public Page<Goods> findByPageView() {
-//        Sort sort = new Sort(Sort.Direction.DESC,"id");
 
-        Pageable pageable =new PageRequest(0,5,Sort.Direction.DESC,"PageView");
+    @Override
+    public Page<Goods> findByHotGoods(Integer page , Integer num) {
+        Pageable pageable =new PageRequest(page,num,Sort.Direction.DESC,"PageView");
         return goodsRepository.findAll(pageable);
     }
 }
