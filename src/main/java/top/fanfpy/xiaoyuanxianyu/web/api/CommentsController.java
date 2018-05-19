@@ -2,10 +2,7 @@ package top.fanfpy.xiaoyuanxianyu.web.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import top.fanfpy.xiaoyuanxianyu.VO.CommentsInfoVO;
 import top.fanfpy.xiaoyuanxianyu.VO.ResultVO;
 import top.fanfpy.xiaoyuanxianyu.entity.Comments;
@@ -41,8 +38,18 @@ public class CommentsController {
 
         for (Comments comment:commentsList) {
             User user = userService.finaUserId(comment.getUserId()).get();
-            commentsInfoVOList.add(new CommentsInfoVO(user.getUserImg(), comment.getUserId(), user.getUsername(), comment.getContent(), comment.getDate()));
+            commentsInfoVOList.add(new CommentsInfoVO(comment.getId(),user.getUserImg(),  user.getUsername(), comment.getContent(), comment.getDate()));
         }
         return ResultUtils.success(commentsInfoVOList);
+    }
+
+    @PostMapping("/")
+    public void saveComments(Comments comments){
+        commentsService.addComment(comments);
+    }
+
+    @DeleteMapping("/{Commentsid}")
+    public void delComments(@PathVariable Integer Commentsid){
+        commentsService.delComment(Commentsid);
     }
 }

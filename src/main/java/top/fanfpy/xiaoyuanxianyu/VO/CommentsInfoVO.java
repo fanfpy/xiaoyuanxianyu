@@ -1,10 +1,13 @@
 package top.fanfpy.xiaoyuanxianyu.VO;
 
+import top.fanfpy.xiaoyuanxianyu.entity.Comments;
+
 public class CommentsInfoVO {
 
-     private String userImg;
 
-     private Integer commentsUserId;
+    private Integer commentsId;
+
+     private String userImg;
 
      private String commentsUserName;
 
@@ -15,9 +18,9 @@ public class CommentsInfoVO {
 
     public CommentsInfoVO() { }
 
-    public CommentsInfoVO(String userImg, Integer commentsUserId, String commentsUserName, String comments, String commentsTime) {
+    public CommentsInfoVO(Integer commentsId, String userImg, String commentsUserName, String comments, String commentsTime) {
+        this.commentsId = commentsId;
         this.userImg = userImg;
-        this.commentsUserId = commentsUserId;
         this.commentsUserName = commentsUserName;
         this.comments = comments;
         this.commentsTime = commentsTime;
@@ -31,12 +34,12 @@ public class CommentsInfoVO {
         this.userImg = userImg;
     }
 
-    public Integer getCommentsUserId() {
-        return commentsUserId;
+    public Integer getCommentsId() {
+        return commentsId;
     }
 
-    public void setCommentsUserId(Integer commentsUserId) {
-        this.commentsUserId = commentsUserId;
+    public void setCommentsId(Integer commentsId) {
+        this.commentsId = commentsId;
     }
 
     public String getCommentsUserName() {
@@ -66,8 +69,8 @@ public class CommentsInfoVO {
     @Override
     public String toString() {
         return "CommentsInfoVO{" +
-                "userImg='" + userImg + '\'' +
-                ", commentsUserId=" + commentsUserId +
+                "commentsId=" + commentsId +
+                ", userImg='" + userImg + '\'' +
                 ", commentsUserName='" + commentsUserName + '\'' +
                 ", comments='" + comments + '\'' +
                 ", commentsTime='" + commentsTime + '\'' +

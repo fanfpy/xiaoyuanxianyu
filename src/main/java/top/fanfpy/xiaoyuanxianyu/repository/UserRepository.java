@@ -24,4 +24,11 @@ public interface UserRepository extends JpaRepository<User, Integer> {
      * */
     User findByUsernameAndPassword(String username , String password);
 
+
+    /**
+     * @param openid
+     * @return 返回user
+     * */
+    User findByOpenid(String openid);
+
 }

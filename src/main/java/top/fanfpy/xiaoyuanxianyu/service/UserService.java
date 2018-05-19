@@ -20,6 +20,8 @@ public interface UserService {
 
     /**
      * @param user 用户
+     * @return 返回user
+     * 保存货修改用户
      * */
     User save(User user);
 
@@ -30,12 +32,15 @@ public interface UserService {
     void delUser(Integer id);
 
     /**
+     * @param id 用户ID
      * 通过id查询用户
      * */
     Optional<User> finaUserId(Integer id);
 
     /**
-     * 通过商品id查询用户
+     * @param openid 微信openid
+     *通过openid查询用户
      * */
-//    User finaUserByGoodsId(Integer goodId);
+    User findByOpenid(String openid);
+
 }

@@ -51,7 +51,7 @@ public class GoodsApiController {
             goodsInfoVO.setUserId(goods.getUserId());
             goodsInfoVO.setUserName(user.getUsername());
             goodsInfoVO.setUserImg(user.getUserImg());
-            goodsInfoVO.setGoodsTitlie(goods.getName());
+            goodsInfoVO.setGoodsTitle(goods.getName());
             goodsInfoVO.setPrice(goods.getPrice());
             goodsInfoVO.setPageView(goods.getPageView());
             goodsInfoVO.setStatus(goods.getStatus());
@@ -80,7 +80,7 @@ public class GoodsApiController {
         goodsInfoVO.setUserId(goods.getUserId());
         goodsInfoVO.setUserName(user.getUsername());
         goodsInfoVO.setUserImg(user.getUserImg());
-        goodsInfoVO.setGoodsTitlie(goods.getName());
+        goodsInfoVO.setGoodsTitle(goods.getName());
         goodsInfoVO.setPrice(goods.getPrice());
         goodsInfoVO.setPageView(goods.getPageView());
         goodsInfoVO.setStatus(goods.getStatus());

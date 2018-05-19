@@ -38,4 +38,8 @@ public class UserServiceImpl implements UserService{
         return userRepository.findById(id);
     }
 
+    @Override
+    public User findByOpenid(String openid) {
+        return userRepository.findByOpenid(openid);
+    }
 }

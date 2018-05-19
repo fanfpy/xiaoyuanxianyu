@@ -40,6 +40,7 @@ public class User {
     @Email
     private String email;
 
+    private String openid;
 
     @NotNull(message = "发布数不能为空")
     private Integer goodsNum;
@@ -140,6 +141,13 @@ public class User {
         this.userImg = userImg;
     }
 
+    public String getOpenid() {
+        return openid;
+    }
+
+    public void setOpenid(String openid) {
+        this.openid = openid;
+    }
 
     @Override
     public String toString() {
@@ -150,6 +158,7 @@ public class User {
                 ", password='" + password + '\'' +
                 ", qq='" + qq + '\'' +
                 ", email='" + email + '\'' +
+                ", openid='" + openid + '\'' +
                 ", goodsNum=" + goodsNum +
                 ", power=" + power +
                 ", status=" + status +

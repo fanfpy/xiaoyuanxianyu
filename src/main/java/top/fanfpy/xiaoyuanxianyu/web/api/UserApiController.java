@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import top.fanfpy.xiaoyuanxianyu.VO.ResultVO;
 import top.fanfpy.xiaoyuanxianyu.repository.UserRepository;
 import top.fanfpy.xiaoyuanxianyu.entity.User;
+import top.fanfpy.xiaoyuanxianyu.service.UserService;
 import top.fanfpy.xiaoyuanxianyu.utils.ResultUtils;
 
 import javax.validation.Valid;
@@ -17,18 +18,11 @@ import javax.validation.Valid;
 @RequestMapping(value = "/api/user")
 @RestController
 public class UserApiController {
-    private final UserRepository userRepository;
     @Autowired
-    public UserApiController(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
-    /**
-     * 获取全部的user信息
-     * */
-    @GetMapping(value = "/")
-    public ResultVO<Object> getUsers(){
-        return ResultUtils.success(userRepository.findAll());
-    }
+    UserRepository userRepository;
+
+    @Autowired
+    UserService userService;
     /**
      * 添加一个新用户
      * */
@@ -41,15 +35,9 @@ public class UserApiController {
             }
             return ResultUtils.erro(str);
         }
-        return ResultUtils.success(userRepository.save(user));
+        return ResultUtils.success(userService.save(user));
     }
-    /**
-     * 通过id获取用户信息
-     * */
-    @GetMapping(value = "/{id}")
-    public ResultVO<Object> getOneUser(@PathVariable("id") Integer id){
-        return ResultUtils.success(userRepository.findById(id));
-    }
+
     /**
      *通过id更新用户
      *
@@ -61,20 +49,20 @@ public class UserApiController {
             return ResultUtils.erro(bindingResult.getFieldError().getDefaultMessage());
         }
         user.setId(id);
-        return ResultUtils.success(userRepository.save(user));
+        return ResultUtils.success(userService.save(user));
     }
     /**
      * 通过id删除用户
      * */
     @DeleteMapping(value = "/{id}")
     public void delUser(@PathVariable("id") Integer id){
-        userRepository.deleteById(id);
+        userService.delUser(id);
     }
     /**
-     *  通过name获取用户信息
-    * */
-    @GetMapping(value = "/name/{name}")
-    public ResultVO<Object> getUserName(@Valid @PathVariable("name") String name){
-        return ResultUtils.success(userRepository.findByUsername(name));
+     * 通过openid获取用户信息
+     * */
+    @GetMapping(value = "{/openid}")
+    public ResultVO findByOpenid(@PathVariable("openid") String openid){
+        return ResultUtils.success(userService.findByOpenid(openid));
     }
 }

@@ -18,7 +18,7 @@ public class GoodsInfoVO {
 
     private String userImg;
 
-    private String goodsTitlie;
+    private String goodsTitle;
 
     private BigDecimal price;
 
@@ -66,12 +66,20 @@ public class GoodsInfoVO {
         this.userImg = userImg;
     }
 
-    public String getGoodsTitlie() {
-        return goodsTitlie;
+    public String getGoodsTitle() {
+        return goodsTitle;
     }
 
-    public void setGoodsTitlie(String goodsTitlie) {
-        this.goodsTitlie = goodsTitlie;
+    public void setGoodsTitle(String goodsTitle) {
+        this.goodsTitle = goodsTitle;
+    }
+
+    public List<String> getGoodsimglist() {
+        return goodsimglist;
+    }
+
+    public void setGoodsimglist(List<String> goodsimglist) {
+        this.goodsimglist = goodsimglist;
     }
 
     public BigDecimal getPrice() {
@@ -129,7 +137,7 @@ public class GoodsInfoVO {
                 ", userId=" + userId +
                 ", userName='" + userName + '\'' +
                 ", userImg='" + userImg + '\'' +
-                ", goodsTitlie='" + goodsTitlie + '\'' +
+                ", goodsTitle='" + goodsTitle + '\'' +
                 ", price=" + price +
                 ", updateTime='" + updateTime + '\'' +
                 ", pageView=" + pageView +
