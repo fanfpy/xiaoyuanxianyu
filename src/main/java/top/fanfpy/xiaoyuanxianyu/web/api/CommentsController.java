@@ -29,6 +29,9 @@ public class CommentsController {
     UserService userService;
 
 
+    /**
+     * 通过商品id获取评论
+     * */
     @GetMapping(value = "/{goodId}")
     public ResultVO getCommentsByGoodsId(@PathVariable("goodId") Integer goodId){
         //评论数量

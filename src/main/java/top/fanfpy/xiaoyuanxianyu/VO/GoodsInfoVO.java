@@ -74,13 +74,6 @@ public class GoodsInfoVO {
         this.goodsTitle = goodsTitle;
     }
 
-    public List<String> getGoodsimglist() {
-        return goodsimglist;
-    }
-
-    public void setGoodsimglist(List<String> goodsimglist) {
-        this.goodsimglist = goodsimglist;
-    }
 
     public BigDecimal getPrice() {
         return price;

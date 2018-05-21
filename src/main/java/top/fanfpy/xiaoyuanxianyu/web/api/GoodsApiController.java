@@ -36,13 +36,17 @@ public class GoodsApiController {
     @GetMapping("/hot/list")
     public ResultVO<Object> getHotGoodsList(){
         List<GoodsInfoVO> goodsInfoVOList = new ArrayList<>();
-
+        //分页
         List<Goods> goodsList = goodsSrevice.findByHotGoods(0,5).getContent();
         for (Goods goods:goodsList) {
+
             GoodsInfoVO goodsInfoVO = new GoodsInfoVO();
 
+            //goods为空 会报错
             List<String> stringList = new ArrayList<>();
+
             User user = userService.finaUserId(goods.getUserId()).get();
+
             for (GoodsImg goodsImg:goodsImgService.finaByGoodsId(goods.getId())) {
                 stringList.add(goodsImg.getImgUrl());
             }
@@ -66,7 +70,7 @@ public class GoodsApiController {
         return ResultUtils.success(goodsInfoVOList);
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "id/{id}")
     public ResultVO<Object> getGoodsId(@PathVariable("id") Integer id){
         GoodsInfoVO goodsInfoVO = new GoodsInfoVO();
         Goods goods= goodsSrevice.findById(id).get();
@@ -101,8 +105,9 @@ public class GoodsApiController {
         goodsSrevice.saveGood(goods);
     }
 
-    @DeleteMapping("/{id}")
-    public void delGoods(@PathVariable("id") Integer id){
-        goodsSrevice.delGoods(id);
-    }
+
+//    @DeleteMapping("/{id}")
+//    public void delGoods(@PathVariable("id") Integer id){
+//        goodsSrevice.delGoods(id);
+//    }
 }

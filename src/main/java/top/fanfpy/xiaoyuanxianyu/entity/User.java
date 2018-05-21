@@ -23,13 +23,12 @@ public class User {
     private Integer id;
 
     @NotNull(message = "手机号不能为空")
-    @Length(min = 11 , message = "手机号")
+//    @Length(min = 11 , message = "手机号")
     private String phone;
 
     @NotNull(message = "用户名不能为空")
     private String username;
 
-    @Length(min = 6 , message = "密码不小于6位")
     @Column(nullable = false)
     private String password;
 
@@ -37,7 +36,7 @@ public class User {
     private String qq;
 
     @NotNull(message = "邮箱不能为空")
-    @Email
+//    @Email
     private String email;
 
     private String openid;

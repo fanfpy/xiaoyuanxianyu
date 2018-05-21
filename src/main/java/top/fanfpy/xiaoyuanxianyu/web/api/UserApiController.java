@@ -18,8 +18,6 @@ import javax.validation.Valid;
 @RequestMapping(value = "/api/user")
 @RestController
 public class UserApiController {
-    @Autowired
-    UserRepository userRepository;
 
     @Autowired
     UserService userService;
@@ -40,7 +38,6 @@ public class UserApiController {
 
     /**
      *通过id更新用户
-     *
      * 打印错误
      * */
     @PutMapping(value = "/{id}")
@@ -51,17 +48,15 @@ public class UserApiController {
         user.setId(id);
         return ResultUtils.success(userService.save(user));
     }
-    /**
-     * 通过id删除用户
-     * */
-    @DeleteMapping(value = "/{id}")
-    public void delUser(@PathVariable("id") Integer id){
-        userService.delUser(id);
+    @GetMapping("/list")
+    public ResultVO list(){
+        return ResultUtils.success(userService.finaUserId(2));
     }
+
     /**
      * 通过openid获取用户信息
      * */
-    @GetMapping(value = "{/openid}")
+    @GetMapping(value = "openid/{openid}")
     public ResultVO findByOpenid(@PathVariable("openid") String openid){
         return ResultUtils.success(userService.findByOpenid(openid));
     }
