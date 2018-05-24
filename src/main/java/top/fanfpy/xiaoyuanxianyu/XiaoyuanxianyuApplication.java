@@ -9,12 +9,12 @@ import org.springframework.web.context.WebApplicationContext;
 import javax.servlet.ServletContext;
 
 @SpringBootApplication
-public class XiaoyuanxianyuApplication {
+public class XiaoyuanxianyuApplication extends SpringBootServletInitializer {
 
-//    @Override
-//    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-//        return builder.sources(XiaoyuanxianyuApplication.class);
-//    }
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(XiaoyuanxianyuApplication.class);
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(XiaoyuanxianyuApplication.class, args);

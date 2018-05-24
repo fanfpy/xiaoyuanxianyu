@@ -2,6 +2,7 @@ package top.fanfpy.xiaoyuanxianyu.web.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import top.fanfpy.xiaoyuanxianyu.VO.GoodsInfoVO;
 import top.fanfpy.xiaoyuanxianyu.VO.ResultVO;
 import top.fanfpy.xiaoyuanxianyu.entity.Goods;
@@ -13,6 +14,10 @@ import top.fanfpy.xiaoyuanxianyu.service.GoodsSrevice;
 import top.fanfpy.xiaoyuanxianyu.service.UserService;
 import top.fanfpy.xiaoyuanxianyu.utils.ResultUtils;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,13 +47,17 @@ public class GoodsApiController {
 
             GoodsInfoVO goodsInfoVO = new GoodsInfoVO();
 
-            //goods为空 会报错
             List<String> stringList = new ArrayList<>();
 
             User user = userService.finaUserId(goods.getUserId()).get();
 
+
             for (GoodsImg goodsImg:goodsImgService.finaByGoodsId(goods.getId())) {
                 stringList.add(goodsImg.getImgUrl());
+                //首页最多传三张图片
+                if (stringList.size()>=3){
+                    break;
+                }
             }
 
             goodsInfoVO.setGoodsId(goods.getId());
@@ -105,6 +114,30 @@ public class GoodsApiController {
         goodsSrevice.saveGood(goods);
     }
 
+    //传入goods 和图片文件文件
+    @PostMapping("/add")
+    public String addGoods(HttpServletRequest request, @RequestParam(value = "flie") MultipartFile file){
+        //获取文件名
+        String fileName =file.getOriginalFilename();
+        //获取路径
+        String destFileName =request.getServletContext().getRealPath("/img/")+file.getOriginalFilename();
+        System.out.println(fileName+"\t"+destFileName);
+        try {
+            //创建路径
+            File destFile = new File(destFileName);
+           // destFile.mkdirs();
+            destFile.getParentFile().mkdirs();
+            //把上传的文件复制到这个目录
+            file.transferTo(destFile);
+            System.out.println(destFileName);
+            System.out.println("上传成功");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return fileName+"<br>"+destFileName;
+    }
 
 //    @DeleteMapping("/{id}")
 //    public void delGoods(@PathVariable("id") Integer id){
