@@ -1,8 +1,7 @@
 package top.fanfpy.xiaoyuanxianyu.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 /**
  * @author fanfp
  * */
@@ -10,11 +9,20 @@ import javax.persistence.Table;
 @Table(name = "goods_img")
 public class GoodsImg {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private Integer goodsId;
 
     private String imgUrl;
+
+    public GoodsImg() {
+    }
+
+    public GoodsImg(Integer goodsId, String imgUrl) {
+        this.goodsId = goodsId;
+        this.imgUrl = imgUrl;
+    }
 
     public Integer getId() {
         return id;

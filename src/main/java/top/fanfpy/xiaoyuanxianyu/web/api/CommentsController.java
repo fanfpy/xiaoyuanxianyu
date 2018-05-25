@@ -36,7 +36,8 @@ public class CommentsController {
     public ResultVO getCommentsByGoodsId(@PathVariable("goodId") Integer goodId){
         //评论数量
         List<Comments> commentsList = commentsService.getCommentByGoodsId(goodId);
-        //
+
+
         List<CommentsInfoVO> commentsInfoVOList = new ArrayList<>();
 
         for (Comments comment:commentsList) {

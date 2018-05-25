@@ -20,4 +20,9 @@ public class GoodsImgServiceImpl implements GoodsImgService {
     public List<GoodsImg> finaByGoodsId(Integer goodsId) {
         return goodsImgRepository.findByGoodsId(goodsId);
     }
+
+    @Override
+    public void save(GoodsImg goodsImg) {
+        goodsImgRepository.save(goodsImg);
+    }
 }

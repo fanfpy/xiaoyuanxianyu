@@ -13,4 +13,9 @@ public interface GoodsImgService {
      *通过商品id查询
      * */
     List<GoodsImg> finaByGoodsId(Integer goodsId);
+
+    /**
+     * @param goodsImg 图片对象
+     * */
+    void save(GoodsImg goodsImg);
 }
