@@ -2,7 +2,6 @@ package top.fanfpy.xiaoyuanxianyu.web.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 import top.fanfpy.xiaoyuanxianyu.VO.GoodsInfoVO;
 import top.fanfpy.xiaoyuanxianyu.VO.ResultVO;
 import top.fanfpy.xiaoyuanxianyu.entity.Goods;
@@ -13,11 +12,6 @@ import top.fanfpy.xiaoyuanxianyu.service.GoodsImgService;
 import top.fanfpy.xiaoyuanxianyu.service.GoodsSrevice;
 import top.fanfpy.xiaoyuanxianyu.service.UserService;
 import top.fanfpy.xiaoyuanxianyu.utils.ResultUtils;
-
-import javax.servlet.http.HttpServletRequest;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -116,31 +110,12 @@ public class GoodsApiController {
 
     //传入goods 和图片文件文件
     @PostMapping("/add")
-    public String addGoods(HttpServletRequest request, @RequestParam(value = "flie") MultipartFile file , Goods goods){
-        //获取文件名
-        String fileName =file.getOriginalFilename();
-        //获取服务器当前路径路径
-        String destFileName =request.getServletContext().getRealPath("/img/")+file.getOriginalFilename();
-        //当前服务器url+图片相对路径
-        String url="";
-        try {
-            //创建路径
-            File destFile = new File(destFileName);
-           // destFile.mkdirs();
-            destFile.getParentFile().mkdirs();
-            //把上传的文件复制到这个目录
-            file.transferTo(destFile);
-            //将图片添加到数据库
-            url = request.getScheme() +"://" + request.getServerName() + ":" +request.getServerPort()+"/img/"+file.getOriginalFilename();
-            //将商品添加到数据库
+    public ResultVO addGoods( Goods goods){
+     return ResultUtils.success(goodsSrevice.saveGood(goods));
+    }
 
-            //写一个业务类来处理这些逻辑
-
-            //没有goodsid 无法存入img 把数据注入后在调用不就好了
-            goodsImgService.save(new GoodsImg(goodsSrevice.saveGood(goods).getId(),url));
-        }catch (IOException e) {
-            e.printStackTrace();
-        }
-        return fileName+"<br>"+destFileName+"<br>"+url;
+    @GetMapping("/class")
+    public ResultVO listClassifiction(){
+        return ResultUtils.success(classificationService.listClassification());
     }
 }

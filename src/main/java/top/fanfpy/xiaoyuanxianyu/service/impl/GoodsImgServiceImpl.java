@@ -22,7 +22,7 @@ public class GoodsImgServiceImpl implements GoodsImgService {
     }
 
     @Override
-    public void save(GoodsImg goodsImg) {
-        goodsImgRepository.save(goodsImg);
+    public GoodsImg save(GoodsImg goodsImg) {
+        return goodsImgRepository.save(goodsImg);
     }
 }

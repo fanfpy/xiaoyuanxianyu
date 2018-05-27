@@ -17,5 +17,5 @@ public interface GoodsImgService {
     /**
      * @param goodsImg 图片对象
      * */
-    void save(GoodsImg goodsImg);
+    GoodsImg save(GoodsImg goodsImg);
 }
