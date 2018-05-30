@@ -81,11 +81,18 @@ public class GoodsServiceImpl implements GoodsSrevice {
     public List<Goods> findByClassifiaction(Integer classifiactionId) {
         return goodsRepository.findByClassificationId(classifiactionId);
     }
-
+    
 
     @Override
-    public Page<Goods> findByHotGoods(Integer page , Integer num) {
-        Pageable pageable =new PageRequest(page,num,Sort.Direction.DESC,"PageView");
+    public Page<Goods> findByHotGoods(Integer start,Integer size) {
+        //分页方法
+        Pageable pageable =PageRequest.of(start,size,Sort.Direction.DESC,"PageView");
+        return goodsRepository.findAll(pageable);
+    }
+
+    @Override
+    public Page<Goods> findByNewGoods(Integer start, Integer size) {
+        Pageable pageable =PageRequest.of(start,size,Sort.Direction.DESC,"Id");
         return goodsRepository.findAll(pageable);
     }
 }

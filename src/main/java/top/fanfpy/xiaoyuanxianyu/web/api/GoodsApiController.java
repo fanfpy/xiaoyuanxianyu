@@ -32,11 +32,11 @@ public class GoodsApiController {
     @Autowired
     GoodsImgService goodsImgService;
 
-    @GetMapping("/hot/list")
-    public ResultVO<Object> getHotGoodsList(){
+    @GetMapping(value = "/hot/{num}")
+    public ResultVO<Object> getHotGoodsList(@PathVariable("num") Integer num){
         List<GoodsInfoVO> goodsInfoVOList = new ArrayList<>();
         //分页
-        List<Goods> goodsList = goodsSrevice.findByHotGoods(0,5).getContent();
+        List<Goods> goodsList = goodsSrevice.findByHotGoods(0,num).getContent();
         for (Goods goods:goodsList) {
 
             GoodsInfoVO goodsInfoVO = new GoodsInfoVO();
@@ -53,7 +53,6 @@ public class GoodsApiController {
                     break;
                 }
             }
-
             goodsInfoVO.setGoodsId(goods.getId());
             goodsInfoVO.setUserId(goods.getUserId());
             goodsInfoVO.setUserName(user.getUsername());
@@ -72,6 +71,48 @@ public class GoodsApiController {
 
         return ResultUtils.success(goodsInfoVOList);
     }
+
+
+    @GetMapping("/new/{num}")
+    public ResultVO<Object> getNewGoodsList(@PathVariable("num") Integer num){
+        List<GoodsInfoVO> goodsInfoVOList = new ArrayList<>();
+        //分页
+        List<Goods> goodsList = goodsSrevice.findByNewGoods(0,num).getContent();
+        for (Goods goods:goodsList) {
+
+            GoodsInfoVO goodsInfoVO = new GoodsInfoVO();
+
+            List<String> stringList = new ArrayList<>();
+
+            User user = userService.finaUserId(goods.getUserId()).get();
+
+
+            for (GoodsImg goodsImg:goodsImgService.finaByGoodsId(goods.getId())) {
+                stringList.add(goodsImg.getImgUrl());
+                //首页最多传三张图片
+                if (stringList.size()>=3){
+                    break;
+                }
+            }
+            goodsInfoVO.setGoodsId(goods.getId());
+            goodsInfoVO.setUserId(goods.getUserId());
+            goodsInfoVO.setUserName(user.getUsername());
+            goodsInfoVO.setUserImg(user.getUserImg());
+            goodsInfoVO.setGoodsTitle(goods.getName());
+            goodsInfoVO.setPrice(goods.getPrice());
+            goodsInfoVO.setPageView(goods.getPageView());
+            goodsInfoVO.setStatus(goods.getStatus());
+            goodsInfoVO.setDescrible(goods.getDescrible());
+            goodsInfoVO.setUpdateTime(goods.getUpdateTime());
+            goodsInfoVO.setGoodsImgList(stringList);
+
+            goodsInfoVOList.add(goodsInfoVO);
+
+        }
+
+        return ResultUtils.success(goodsInfoVOList);
+    }
+
 
     @GetMapping(value = "id/{id}")
     public ResultVO<Object> getGoodsId(@PathVariable("id") Integer id){
@@ -108,7 +149,7 @@ public class GoodsApiController {
         goodsSrevice.saveGood(goods);
     }
 
-    //传入goods 和图片文件文件
+    //传入goods
     @PostMapping("/add")
     public ResultVO addGoods( Goods goods){
      return ResultUtils.success(goodsSrevice.saveGood(goods));

@@ -53,8 +53,17 @@ public interface GoodsSrevice {
     /**
      * 分页查询热门商品
      * @return 商品页
-     * @param num 每页显示的内容
-     * @param page 开始页
+     * @param size 每页显示的内容
+     * @param start 开始页
      * */
-    Page<Goods> findByHotGoods(Integer page,Integer num);
+    Page<Goods> findByHotGoods(Integer start,Integer size);
+
+    /**
+     * 分页查询id倒序
+     * @return 商品页
+     * @param size 每页显示的内容
+     * @param start 开始页
+     * */
+    Page<Goods> findByNewGoods(Integer start,Integer size);
+
 }

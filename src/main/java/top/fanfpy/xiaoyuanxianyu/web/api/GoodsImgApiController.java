@@ -38,7 +38,6 @@ public class GoodsImgApiController {
             file.transferTo(destFile);
             //将图片添加到数据库
             url = request.getScheme() +"://" + request.getServerName() + ":" +request.getServerPort()+"/img/"+file.getOriginalFilename();
-            System.out.println(url);
         }catch (IOException e){
             e.printStackTrace();
         }

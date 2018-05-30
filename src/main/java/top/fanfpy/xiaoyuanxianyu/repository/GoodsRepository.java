@@ -21,10 +21,4 @@ public interface GoodsRepository extends JpaRepository<Goods ,Integer> {
      * */
     List<Goods> findByClassificationId(Integer classifiactionId);
 
-    /**
-     * 分页查询
-     * @param pageable 也的参数
-     * @return 返回商品页
-     * */
-//    Page<Goods> findByPageView(Pageable pageable);
 }
