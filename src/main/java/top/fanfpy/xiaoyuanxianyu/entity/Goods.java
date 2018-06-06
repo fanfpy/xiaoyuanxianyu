@@ -32,7 +32,6 @@ public class Goods {
 
     private Integer pageView;
 
-    @Column(name = "creata_time")
     private String updateTime;
 
     public Integer getId() {

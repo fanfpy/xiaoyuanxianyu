@@ -1,5 +1,6 @@
 package top.fanfpy.xiaoyuanxianyu.service;
 
+import top.fanfpy.xiaoyuanxianyu.VO.GoodsInfoVO;
 import top.fanfpy.xiaoyuanxianyu.entity.Goods;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -48,6 +49,9 @@ public interface GoodsSrevice {
      * */
     Optional<Goods> findById(Integer id);
 
+    /**通过分类 返回商品数组
+     * @return 商品数组
+     * */
     List<Goods> findByClassifiaction(Integer classifiactionId);
 
     /**
@@ -66,4 +70,12 @@ public interface GoodsSrevice {
      * */
     Page<Goods> findByNewGoods(Integer start,Integer size);
 
+    /**
+     * @date 2018/6/6
+     *直接返回页面所需要的商品信息 包括用户头像 商品图片 减少Controller的复杂程度
+     * 因预览页和详情页（预览页最多三张图片） 显示图片的数量不同 所以增加了imgMun
+     * @param goodsId 商品id
+     * @param imgNum 图片数量
+     * */
+    GoodsInfoVO GoodsInfo(Integer goodsId,Integer imgNum);
 }

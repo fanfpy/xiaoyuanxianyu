@@ -1,7 +1,10 @@
 package top.fanfpy.xiaoyuanxianyu.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import top.fanfpy.xiaoyuanxianyu.entity.Goods;
 import top.fanfpy.xiaoyuanxianyu.entity.User;
+
+import java.util.List;
 
 /**
  * @author fanfp
@@ -29,6 +32,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
      * @param openid
      * @return 返回user
      * */
-    User findByOpenid(String openid);
+    List<User> findByOpenid(String openid);
+
 
 }

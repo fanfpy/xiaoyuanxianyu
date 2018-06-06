@@ -55,6 +55,9 @@ public class UserApiController {
 
     /**
      * 通过openid获取用户信息
+     *
+     * 假如存在相同openid的用户 这里会报错 所以 改改改
+     * @date 2018/6/6
      * */
     @GetMapping(value = "openid/{openid}")
     public ResultVO findByOpenid(@PathVariable("openid") String openid){

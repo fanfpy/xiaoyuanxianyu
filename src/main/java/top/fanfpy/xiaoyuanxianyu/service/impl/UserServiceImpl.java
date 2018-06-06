@@ -6,6 +6,7 @@ import top.fanfpy.xiaoyuanxianyu.entity.User;
 import top.fanfpy.xiaoyuanxianyu.repository.UserRepository;
 import top.fanfpy.xiaoyuanxianyu.service.UserService;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -39,7 +40,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User findByOpenid(String openid) {
+    public List<User> findByOpenid(String openid) {
         return userRepository.findByOpenid(openid);
     }
 }

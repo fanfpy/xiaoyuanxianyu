@@ -16,5 +16,4 @@ public class XiaoyuanxianyuApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {
         SpringApplication.run(XiaoyuanxianyuApplication.class, args);
     }
-
 }

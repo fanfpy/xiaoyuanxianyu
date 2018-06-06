@@ -3,6 +3,7 @@ package top.fanfpy.xiaoyuanxianyu.service;
 
 import top.fanfpy.xiaoyuanxianyu.entity.User;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -21,7 +22,7 @@ public interface UserService {
     /**
      * @param user 用户
      * @return 返回user
-     * 保存货修改用户
+     * 保存修改用户
      * */
     User save(User user);
 
@@ -41,6 +42,6 @@ public interface UserService {
      * @param openid 微信openid
      *通过openid查询用户
      * */
-    User findByOpenid(String openid);
+    List<User> findByOpenid(String openid);
 
 }
