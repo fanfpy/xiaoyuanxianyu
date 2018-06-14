@@ -1,5 +1,5 @@
 # 二手交易平台
-###  SpringBoot+Spring-Data-Jpa
+###  SpringBoot+Spring-Data-JPA
 
 
 #API描述
