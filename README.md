@@ -6,6 +6,8 @@
     
 
     
+
+    
 **简要描述：** 
 
 - 返回首页需要的数据 热门和最新商品
@@ -36,7 +38,7 @@
 			"goodsId": 1,
 			"userId": 1,
 			"userName":"fanfpy",
-			"userImg":"https:xxx.caom/xxx.jpg",
+			"userImg":"https:xxx.com/xxx.jpg",
 			"goodsTitlie":"小米mix2s",
 			"price" : 2999.0,
 			"date" "2018-05-03 22:39:26"
@@ -44,16 +46,16 @@
 			"pageView":2,
 			"describle": "描述：一面科技一面艺术",
 			"goodsImg":[
-				"img":"https:xxx.caom/xxx.jpg",
-				"img":"https:xxx.caom/xxx.jpg",
-				"img":"https:xxx.caom/xxx.jpg",
+				"img":"https:xxx.com/xxx.jpg",
+				"img":"https:xxx.com/xxx.jpg",
+				"img":"https:xxx.com/xxx.jpg",
 			]
 		},
 		{
 			"goodsId": 2,
 			"userId": 1,
 			"userName":"fanfpy",
-			"userImg":"https:xxx.caom/xxx.jpg",
+			"userImg":"https:xxx.com/xxx.jpg",
 			"goodsTitlie":"vivoX20",
 			"price" : 3999.0,
 			"date" "2018-05-03 14:22:16"
@@ -61,9 +63,9 @@
 			"pageView":2,
 			"describle": "两千万柔光双摄，照亮你的美",
 			"goodsImg":[
-				"img":"https:xxx.caom/xxx.jpg",
-				"img":"https:xxx.caom/xxx.jpg",
-				"img":"https:xxx.caom/xxx.jpg",
+				"img":"https:xxx.com/xxx.jpg",
+				"img":"https:xxx.com/xxx.jpg",
+				"img":"https:xxx.com/xxx.jpg",
 			]
 		}
 	]
@@ -91,7 +93,7 @@
 		 "goodsId": 1,
             "userId": 1,
             "userName":"fanfpy",
-            "userImg":"https:xxx.caom/xxx.jpg",
+            "userImg":"https:xxx.com/xxx.jpg",
             "goodsTitlie":"小米mix2s",
             "price" : 2999.0,
             "date" "2018-05-03 22:39:26"
@@ -99,9 +101,9 @@
 			"pageView":2,
             "describle": "描述：一面科技一面艺术",
             "goodsImg":[
-                "img":"https:xxx.caom/xxx.jpg",
-                "img":"https:xxx.caom/xxx.jpg",
-                "img":"https:xxx.caom/xxx.jpg",
+                "img":"https:xxx.com/xxx.jpg",
+                "img":"https:xxx.com/xxx.jpg",
+                "img":"https:xxx.com/xxx.jpg",
             ]
 	}
 }
@@ -134,7 +136,7 @@
 			"goodsId": 2,
 			"userId": 1,
 			"userName":"fanfpy",
-			"userImg":"https:xxx.caom/xxx.jpg",
+			"userImg":"https:xxx.com/xxx.jpg",
 			"goodsTitlie":"vivoX20",
 			"price" : 3999.0,
 			"date" "2018-05-03 14:22:16"
@@ -142,16 +144,16 @@
 			"pageView":2,
 			"describle": "两千万柔光双摄，照亮你的美",
 			"goodsImg":[
-				"img":"https:xxx.caom/xxx.jpg",
-				"img":"https:xxx.caom/xxx.jpg",
-				"img":"https:xxx.caom/xxx.jpg",
+				"img":"https:xxx.com/xxx.jpg",
+				"img":"https:xxx.com/xxx.jpg",
+				"img":"https:xxx.com/xxx.jpg",
 			]
 		},
 		{
 			"goodsId": 2,
 			"userId": 1,
 			"userName":"fanfpy",
-			"userImg":"https:xxx.caom/xxx.jpg",
+			"userImg":"https:xxx.com/xxx.jpg",
 			"goodsTitlie":"vivoX20",
 			"price" : 3999.0,
 			"date" "2018-05-03 14:22:16"
@@ -159,9 +161,9 @@
 			"pageView":2,
 			"describle": "两千万柔光双摄，照亮你的美",
 			"goodsImg":[
-				"img":"https:xxx.caom/xxx.jpg",
-				"img":"https:xxx.caom/xxx.jpg",
-				"img":"https:xxx.caom/xxx.jpg",
+				"img":"https:xxx.com/xxx.jpg",
+				"img":"https:xxx.com/xxx.jpg",
+				"img":"https:xxx.com/xxx.jpg",
 			]
 		}
 	]
