@@ -57,13 +57,13 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <groupId>org.springframework.boot</groupId>  <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.42</version>
         </dependency>
 
         <!--热部署-->
@@ -92,6 +92,21 @@
             <artifactId>spring-boot-starter-tomcat</artifactId>
             <scope>provided</scope>
         </dependency>
+
+        
+        <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+
     </dependencies>
 
 
@@ -103,6 +118,8 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <!--开启热部署-->
                 <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <fork>true</fork>
                     <addResources>true</addResources><!--支持静态文件热部署-->
                 </configuration>
