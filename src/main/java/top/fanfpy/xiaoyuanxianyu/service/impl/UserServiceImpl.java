@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public List<User> findByOpenid(String openid) {
+    public User findByOpenid(String openid) {
         return userRepository.findByOpenid(openid);
     }
 }

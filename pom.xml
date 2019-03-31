@@ -6,8 +6,8 @@
     <groupId>top.fanfpy</groupId>
     <artifactId>xiaoyuanxianyu</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <!--<packaging>jar</packaging>-->
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
+<!--    <packaging>war</packaging>-->
 
     <name>xiaoyuanxianyu</name>
     <description>Demo project for Spring Boot</description>
@@ -57,7 +57,8 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>  <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
         <dependency>
@@ -79,20 +80,12 @@
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
 
-        <!--连接池-->
-        <!--<dependency>-->
-            <!--<groupId>com.mchange</groupId>-->
-            <!--<artifactId>c3p0</artifactId>-->
-            <!--<version>0.9.5.2</version>-->
-        <!--</dependency>-->
-
-        <!--打包为war-->
+        <!--wxjava-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
+            <groupId>com.github.binarywang</groupId>
+            <artifactId>weixin-java-miniapp</artifactId>
+            <version>3.3.0</version>
         </dependency>
-
         
         <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
         <dependency>
@@ -106,10 +99,7 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.9.2</version>
         </dependency>
-
     </dependencies>
-
-
 
     <build>
         <plugins>
@@ -118,8 +108,6 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <!--开启热部署-->
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
                     <fork>true</fork>
                     <addResources>true</addResources><!--支持静态文件热部署-->
                 </configuration>

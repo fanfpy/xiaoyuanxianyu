@@ -22,35 +22,28 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull(message = "手机号不能为空")
-//    @Length(min = 11 , message = "手机号")
     private String phone;
 
     @NotNull(message = "用户名不能为空")
     private String username;
 
-    @Column(nullable = false)
     private String password;
 
-    @NotNull(message = "qq不能为空")
     private String qq;
 
-    @NotNull(message = "邮箱不能为空")
-//    @Email
     private String email;
 
     private String openid;
 
-    @NotNull(message = "发布数不能为空")
-    private Integer goodsNum;
+    private Integer goodsNum = 0;
 
 
     @NotNull(message = "权限值默认为10")
-    private Byte power;
+    private Byte power = 0;
 
 
     @NotNull(message = "是否冻结默认为0，1为未激活，2为封禁")
-    private Byte status ;
+    private Byte status = 0;
 
     @Column(name = "user_img")
     @NotNull(message = "用户头像")

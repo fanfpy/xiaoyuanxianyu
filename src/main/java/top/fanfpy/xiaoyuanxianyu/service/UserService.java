@@ -42,6 +42,6 @@ public interface UserService {
      * @param openid 微信openid
      *通过openid查询用户
      * */
-    List<User> findByOpenid(String openid);
+    User findByOpenid(String openid);
 
 }

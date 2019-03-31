@@ -32,7 +32,5 @@ public interface UserRepository extends JpaRepository<User, Integer> {
      * @param openid
      * @return 返回user
      * */
-    List<User> findByOpenid(String openid);
-
-
+    User findByOpenid(String openid);
 }

@@ -16,7 +16,7 @@ public class HttpAspect {
 
     private final static Logger logger = LoggerFactory.getLogger(HttpAspect.class);
 
-    @Pointcut("execution(public * top.fanfpy.xiaoyuanxianyu.web.api.GoodsImgApiController.addImg(..))")
+    @Pointcut("execution(public * top.fanfpy.xiaoyuanxianyu.web.GoodsImgApiController.addImg(..))")
     public void log(){
     }
 
