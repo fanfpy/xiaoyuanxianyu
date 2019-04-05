@@ -31,28 +31,23 @@ public class GoodsApiController {
     GoodsImgService goodsImgService;
 
     @GetMapping(value = "/hot/{num}")
-    public ResultVO<Object> getHotGoodsList(@PathVariable("num") Integer num){
+    public ResultVO<Object> getHotGoodsList(@PathVariable("num") Integer page){
         List<GoodsInfoVO> goodsInfoVOList = new ArrayList<>();
         //分页
-        List<Goods> goodsList = goodsSrevice.findByHotGoods(0,num).getContent();
+        List<Goods> goodsList = goodsSrevice.findByHotGoods(page).getContent();
         for (Goods goods:goodsList) {
             goodsInfoVOList.add(goodsSrevice.GoodsInfo(goods.getId(),3));
-
         }
-
         return ResultUtils.success(goodsInfoVOList);
     }
 
 
     @GetMapping("/new/{num}")
-    public ResultVO<Object> getNewGoodsList(@PathVariable("num") Integer num){
+    public ResultVO<Object> getNewGoodsList(@PathVariable("num") Integer page){
         List<GoodsInfoVO> goodsInfoVOList = new ArrayList<>();
         //分页
-        List<Goods> goodsList = goodsSrevice.findByNewGoods(0,num).getContent();
-        for (Goods goods:goodsList) {
-            goodsInfoVOList.add(goodsSrevice.GoodsInfo(goods.getId(),3));
-        }
-
+        List<Goods> goodsList = goodsSrevice.findByNewGoods(page).getContent();
+        goodsList.forEach(e -> goodsInfoVOList.add(goodsSrevice.GoodsInfo(e.getId(),3)));
         return ResultUtils.success(goodsInfoVOList);
     }
 
@@ -89,10 +84,7 @@ public class GoodsApiController {
     public ResultVO listGoodsForClass(@PathVariable("classId") Integer classId){
         List<GoodsInfoVO> goodsInfoVOList = new ArrayList<>();
         List<Goods> goodsList = goodsSrevice.findByClassifiaction(classId);
-        for (Goods goods:
-             goodsList) {
-            goodsInfoVOList.add(goodsSrevice.GoodsInfo(goods.getId(),3));
-        }
+        goodsList.forEach(e -> goodsInfoVOList.add(goodsSrevice.GoodsInfo(e.getId(),3)));
         return ResultUtils.success(goodsInfoVOList);
     }
 }

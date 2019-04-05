@@ -90,15 +90,15 @@ public class GoodsServiceImpl implements GoodsSrevice {
     
 
     @Override
-    public Page<Goods> findByHotGoods(Integer start,Integer size) {
+    public Page<Goods> findByHotGoods(Integer page) {
         //分页方法
-        Pageable pageable =PageRequest.of(start,size,Sort.Direction.DESC,"PageView");
+        Pageable pageable =PageRequest.of(page,10,Sort.Direction.DESC,"PageView");
         return goodsRepository.findAll(pageable);
     }
 
     @Override
-    public Page<Goods> findByNewGoods(Integer start, Integer size) {
-        Pageable pageable =PageRequest.of(start,size,Sort.Direction.DESC,"Id");
+    public Page<Goods> findByNewGoods(Integer page) {
+        Pageable pageable =PageRequest.of(page,10,Sort.Direction.DESC,"Id");
         return goodsRepository.findAll(pageable);
     }
 

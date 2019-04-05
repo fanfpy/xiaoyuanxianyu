@@ -46,7 +46,6 @@ public class UserApiController {
     }
 
 
-
     @GetMapping(value = "/code")
     public ResultVO userInfo(@Param("code") String code,
                          @Param("encryptedData") String encryptedData,

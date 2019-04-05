@@ -20,7 +20,7 @@ public class Swagger2 {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("top.fanfpy.web.api"))
+                .apis(RequestHandlerSelectors.basePackage("top.fanfpy.xiaoyuanxianyu.web"))
                 .paths(PathSelectors.any())
                 .build();
     }
@@ -29,7 +29,6 @@ public class Swagger2 {
         return new ApiInfoBuilder()
                 .title("Spring Boot中使用Swagger2构建RESTful APIs")
                 .description("")
-                .termsOfServiceUrl("http://blog.didispace.com/")
                 .version("1.0")
                 .build();
     }
