@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import top.fanfpy.xiaoyuanxianyu.VO.ResultVO;
+import top.fanfpy.xiaoyuanxianyu.vo.ResultVO;
 import top.fanfpy.xiaoyuanxianyu.entity.User;
 import top.fanfpy.xiaoyuanxianyu.service.UserService;
 import top.fanfpy.xiaoyuanxianyu.utils.ResultUtils;

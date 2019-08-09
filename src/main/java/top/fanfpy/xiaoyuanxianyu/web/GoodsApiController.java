@@ -2,8 +2,8 @@ package top.fanfpy.xiaoyuanxianyu.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import top.fanfpy.xiaoyuanxianyu.VO.GoodsInfoVO;
-import top.fanfpy.xiaoyuanxianyu.VO.ResultVO;
+import top.fanfpy.xiaoyuanxianyu.vo.GoodsInfoVO;
+import top.fanfpy.xiaoyuanxianyu.vo.ResultVO;
 import top.fanfpy.xiaoyuanxianyu.entity.Goods;
 import top.fanfpy.xiaoyuanxianyu.service.ClassificationService;
 import top.fanfpy.xiaoyuanxianyu.service.GoodsImgService;
@@ -31,10 +31,10 @@ public class GoodsApiController {
     GoodsImgService goodsImgService;
 
     @GetMapping(value = "/hot/{num}")
-    public ResultVO<Object> getHotGoodsList(@PathVariable("num") Integer page){
+    public ResultVO<Object> getHotGoodsList(@PathVariable("num") Integer num){
         List<GoodsInfoVO> goodsInfoVOList = new ArrayList<>();
         //分页
-        List<Goods> goodsList = goodsSrevice.findByHotGoods(page).getContent();
+        List<Goods> goodsList = goodsSrevice.findByHotGoods(num).getContent();
         for (Goods goods:goodsList) {
             goodsInfoVOList.add(goodsSrevice.GoodsInfo(goods.getId(),3));
         }
@@ -43,10 +43,10 @@ public class GoodsApiController {
 
 
     @GetMapping("/new/{num}")
-    public ResultVO<Object> getNewGoodsList(@PathVariable("num") Integer page){
+    public ResultVO<Object> getNewGoodsList(@PathVariable("num") Integer num){
         List<GoodsInfoVO> goodsInfoVOList = new ArrayList<>();
         //分页
-        List<Goods> goodsList = goodsSrevice.findByNewGoods(page).getContent();
+        List<Goods> goodsList = goodsSrevice.findByNewGoods(num).getContent();
         goodsList.forEach(e -> goodsInfoVOList.add(goodsSrevice.GoodsInfo(e.getId(),3)));
         return ResultUtils.success(goodsInfoVOList);
     }

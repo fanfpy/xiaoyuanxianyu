@@ -1,4 +1,4 @@
-package top.fanfpy.xiaoyuanxianyu.VO;
+package top.fanfpy.xiaoyuanxianyu.vo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

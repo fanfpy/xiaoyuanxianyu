@@ -1,6 +1,4 @@
-package top.fanfpy.xiaoyuanxianyu.VO;
-
-import top.fanfpy.xiaoyuanxianyu.entity.Comments;
+package top.fanfpy.xiaoyuanxianyu.vo;
 
 public class CommentsInfoVO {
 

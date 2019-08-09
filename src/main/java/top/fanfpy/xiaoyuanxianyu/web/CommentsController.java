@@ -1,10 +1,10 @@
 package top.fanfpy.xiaoyuanxianyu.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.web.bind.annotation.*;
-import top.fanfpy.xiaoyuanxianyu.VO.CommentsInfoVO;
-import top.fanfpy.xiaoyuanxianyu.VO.ResultVO;
+import top.fanfpy.xiaoyuanxianyu.vo.CommentsInfoVO;
+import top.fanfpy.xiaoyuanxianyu.vo.ResultVO;
 import top.fanfpy.xiaoyuanxianyu.entity.Comments;
 import top.fanfpy.xiaoyuanxianyu.entity.User;
 import top.fanfpy.xiaoyuanxianyu.service.CommentsService;
@@ -27,6 +27,7 @@ public class CommentsController {
     CommentsService commentsService;
     @Autowired
     UserService userService;
+    
 
 
     /**

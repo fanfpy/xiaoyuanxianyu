@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import top.fanfpy.xiaoyuanxianyu.VO.GoodsInfoVO;
+import top.fanfpy.xiaoyuanxianyu.vo.GoodsInfoVO;
 import top.fanfpy.xiaoyuanxianyu.entity.Classification;
 import top.fanfpy.xiaoyuanxianyu.entity.Goods;
 import top.fanfpy.xiaoyuanxianyu.entity.GoodsImg;
@@ -92,13 +92,13 @@ public class GoodsServiceImpl implements GoodsSrevice {
     @Override
     public Page<Goods> findByHotGoods(Integer page) {
         //分页方法
-        Pageable pageable =PageRequest.of(page,10,Sort.Direction.DESC,"PageView");
+        Pageable pageable =PageRequest.of(0,page,Sort.Direction.DESC,"PageView");
         return goodsRepository.findAll(pageable);
     }
 
     @Override
     public Page<Goods> findByNewGoods(Integer page) {
-        Pageable pageable =PageRequest.of(page,10,Sort.Direction.DESC,"Id");
+        Pageable pageable =PageRequest.of(0,page,Sort.Direction.DESC,"Id");
         return goodsRepository.findAll(pageable);
     }
 

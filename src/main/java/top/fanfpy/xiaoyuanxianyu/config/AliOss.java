@@ -2,12 +2,9 @@ package top.fanfpy.xiaoyuanxianyu.config;
 
 import cn.hutool.core.date.DateUtil;
 import org.springframework.context.annotation.Configuration;
-
 import com.aliyun.oss.OSSClient;
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-
 import java.io.InputStream;
 
 @Component
@@ -33,6 +30,6 @@ public class AliOss {
   public String updateImg(InputStream inputStream, String fileName){
     long time  = System.currentTimeMillis();
     ossClient().putObject(this.bucketName, DateUtil.today() +"/"+time+fileName,inputStream);
-    return "https://" +this.bucketName+ this.endpoint + "/" + DateUtil.today() +"/"+time+fileName;
+    return "https://" +this.bucketName+"." +this.endpoint + "/" + DateUtil.today() +"/"+time+fileName;
   }
 }

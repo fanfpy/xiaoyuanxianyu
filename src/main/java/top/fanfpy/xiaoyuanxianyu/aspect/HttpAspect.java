@@ -11,12 +11,12 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 
 @Aspect
-@Component
+//@Component
 public class HttpAspect {
 
     private final static Logger logger = LoggerFactory.getLogger(HttpAspect.class);
 
-    @Pointcut("execution(public * top.fanfpy.xiaoyuanxianyu.web.GoodsImgApiController.addImg(..))")
+    @Pointcut("execution(public * top.fanfpy.xiaoyuanxianyu.web(..))")
     public void log(){
     }
 

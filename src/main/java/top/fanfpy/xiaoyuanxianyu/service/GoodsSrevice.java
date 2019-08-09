@@ -1,6 +1,6 @@
 package top.fanfpy.xiaoyuanxianyu.service;
 
-import top.fanfpy.xiaoyuanxianyu.VO.GoodsInfoVO;
+import top.fanfpy.xiaoyuanxianyu.vo.GoodsInfoVO;
 import top.fanfpy.xiaoyuanxianyu.entity.Goods;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
