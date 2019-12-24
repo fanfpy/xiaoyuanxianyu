@@ -23,9 +23,6 @@ public class GoodsImgApiController {
     AliOss aliOss;
 
 
-    @Value("")
-    String endpoint;
-
     @PostMapping("/add")
     public GoodsImg addImg(@RequestParam("file") MultipartFile file, @RequestParam(value = "goodsId") Integer goodsId) throws IOException {
         return goodsImgService.save(new GoodsImg(goodsId, aliOss.updateImg(file.getInputStream(),file.getOriginalFilename())));

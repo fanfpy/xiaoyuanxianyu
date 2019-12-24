@@ -18,7 +18,7 @@ public class GoodsImgServiceImpl implements GoodsImgService {
 
     @Override
     public List<GoodsImg> finaByGoodsId(Integer goodsId) {
-        return goodsImgRepository.findByGoodsId(goodsId);
+        return goodsImgRepository.findByGoodsId(goodsId,null);
     }
 
     @Override

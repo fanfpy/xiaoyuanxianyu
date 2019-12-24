@@ -1,5 +1,7 @@
 package top.fanfpy.xiaoyuanxianyu.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
@@ -9,6 +11,7 @@ import java.math.BigDecimal;
  * @author fanfp
  * @date 2018/4/23
  * */
+@Data
 @Entity
 @Table(name = "goods")
 public class Goods {
@@ -34,99 +37,4 @@ public class Goods {
 
     private String updateTime;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    public Integer getClassificationId() {
-        return classificationId;
-    }
-
-    public void setClassificationId(Integer classificationId) {
-        this.classificationId = classificationId;
-    }
-
-    public Integer getCommetNum() {
-        return commetNum;
-    }
-
-    public void setCommetNum(Integer commetNum) {
-        this.commetNum = commetNum;
-    }
-
-    public String getDescrible() {
-        return describle;
-    }
-
-    public void setDescrible(String describle) {
-        this.describle = describle;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
-    public byte getStatus() {
-        return status;
-    }
-
-    public void setStatus(byte status) {
-        this.status = status;
-    }
-
-    public Integer getPageView() {
-        return pageView;
-    }
-
-    public void setPageView(Integer pageView) {
-        this.pageView = pageView;
-    }
-
-    public String getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    @Override
-    public String toString() {
-        return "Goods{" +
-                "id=" + id +
-                ", userId=" + userId +
-                ", classificationId=" + classificationId +
-                ", commetNum=" + commetNum +
-                ", describle='" + describle + '\'' +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", status=" + status +
-                ", pageView=" + pageView +
-                ", updateTime='" + updateTime + '\'' +
-                '}';
-    }
 }

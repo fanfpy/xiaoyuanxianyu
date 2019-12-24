@@ -50,14 +50,5 @@ public class ClassVO {
         this.classificationStatus = classificationStatus;
     }
 
-    @Override
-    public String toString() {
-        return "ClassVO{" +
-                "classificationId=" + classificationId +
-                ", classificationName='" + classificationName + '\'' +
-                ", classificationStatus=" + classificationStatus +
-                ", goodsList=" + goodsList +
-                '}';
-    }
 }
 

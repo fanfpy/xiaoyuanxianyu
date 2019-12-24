@@ -46,6 +46,10 @@ public class UserApiController {
     }
 
 
+    /**
+     * 用code换区openid 检查openid是否存在，进行用户注册
+     * 使用wxjava组件 具体入参请参考wxjava文档
+     * */
     @GetMapping(value = "/code")
     public ResultVO userInfo(@Param("code") String code,
                          @Param("encryptedData") String encryptedData,

@@ -1,5 +1,6 @@
 package top.fanfpy.xiaoyuanxianyu.entity;
 
+import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
@@ -10,6 +11,7 @@ import javax.validation.constraints.*;
  * @author fanfp
  * @date 2018/4/22
  * */
+@Data
 @Entity(name = "classification")
 public class Classification {
     @Id
@@ -33,47 +35,5 @@ public class Classification {
         this.name = name;
         this.number = number;
         this.status = status;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getNumber() {
-        return number;
-    }
-
-    public void setNumber(Integer number) {
-        this.number = number;
-    }
-
-    public Byte getStatus() {
-        return status;
-    }
-
-    public void setStatus(Byte status) {
-        this.status = status;
-    }
-
-    @Override
-    public String toString() {
-        return "Classification{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", number=" + number +
-                ", status=" + status +
-                '}';
     }
 }

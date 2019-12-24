@@ -1,5 +1,6 @@
 package top.fanfpy.xiaoyuanxianyu.entity;
 
+import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
@@ -12,6 +13,7 @@ import java.util.Random;
  * @date 2018/04/19
  * User实体类
  * */
+@Data
 @Entity(name = "user")
 public class User {
 
@@ -53,108 +55,5 @@ public class User {
     public Integer getId() {
         new Random().nextInt();
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone.trim();
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username.trim();
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password.trim();
-    }
-
-    public String getQq() {
-        return qq;
-    }
-
-    public void setQq(String qq) {
-        this.qq = qq.trim();
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email.trim();
-    }
-
-
-    public Integer getGoodsNum() {
-        return goodsNum;
-    }
-
-    public void setGoodsNum(Integer goodsNum) {
-        this.goodsNum = goodsNum;
-    }
-
-    public Byte getPower() {
-        return power;
-    }
-
-    public void setPower(Byte power) {
-        this.power = power;
-    }
-
-
-    public Byte getStatus() {
-        return status;
-    }
-
-    public void setStatus(Byte status) {
-        this.status = status;
-    }
-
-    public String getUserImg() {
-        return userImg;
-    }
-
-    public void setUserImg(String userImg) {
-        this.userImg = userImg;
-    }
-
-    public String getOpenid() {
-        return openid;
-    }
-
-    public void setOpenid(String openid) {
-        this.openid = openid;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", phone='" + phone + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", qq='" + qq + '\'' +
-                ", email='" + email + '\'' +
-                ", openid='" + openid + '\'' +
-                ", goodsNum=" + goodsNum +
-                ", power=" + power +
-                ", status=" + status +
-                ", userImg='" + userImg + '\'' +
-                '}';
     }
 }

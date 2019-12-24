@@ -87,7 +87,7 @@ public class GoodsServiceImpl implements GoodsSrevice {
     public List<Goods> findByClassifiaction(Integer classifiactionId) {
         return goodsRepository.findByClassificationId(classifiactionId);
     }
-    
+
 
     @Override
     public Page<Goods> findByHotGoods(Integer page) {
@@ -119,14 +119,10 @@ public class GoodsServiceImpl implements GoodsSrevice {
         User user = userRepository.findById(goods.getUserId()).get();
 
         //对应商品的图片
-        List<GoodsImg> goodsImgList = goodsImgRepository.findByGoodsId(goodsId);
 
-        for (GoodsImg goodsImg : goodsImgList){
-            stringList.add(goodsImg.getImgUrl());
-            if (stringList.size()>=imgNum){
-                break;
-            }
-        }
+        List<GoodsImg> goodsImgList = goodsImgRepository.findByGoodsId(goodsId,PageRequest.of(0,3));
+
+
         goodsInfoVO.setGoodsId(goods.getId());
         goodsInfoVO.setUserId(goods.getUserId());
         goodsInfoVO.setUserName(user.getUsername());

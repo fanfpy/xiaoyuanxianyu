@@ -1,10 +1,13 @@
 package top.fanfpy.xiaoyuanxianyu.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 /**
  * @author fanfp
  * */
+@Data
 @Entity
 @Table(name = "goods_img")
 public class GoodsImg {
@@ -24,36 +27,4 @@ public class GoodsImg {
         this.imgUrl = imgUrl;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getGoodsId() {
-        return goodsId;
-    }
-
-    public void setGoodsId(Integer goodsId) {
-        this.goodsId = goodsId;
-    }
-
-    public String getImgUrl() {
-        return imgUrl;
-    }
-
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
-    }
-
-    @Override
-    public String toString() {
-        return "GoodsImg{" +
-                "id=" + id +
-                ", goodsId=" + goodsId +
-                ", imgUrl='" + imgUrl + '\'' +
-                '}';
-    }
 }

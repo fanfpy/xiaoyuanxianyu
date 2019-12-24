@@ -27,6 +27,10 @@ public class AliOss {
     return new OSSClient(this.endpoint,this.accessKeyId,this.accessKeySecret);
   }
 
+  /**
+   * 文件流和文件名
+   * return 文件路径
+   * */
   public String updateImg(InputStream inputStream, String fileName){
     long time  = System.currentTimeMillis();
     ossClient().putObject(this.bucketName, DateUtil.today() +"/"+time+fileName,inputStream);
