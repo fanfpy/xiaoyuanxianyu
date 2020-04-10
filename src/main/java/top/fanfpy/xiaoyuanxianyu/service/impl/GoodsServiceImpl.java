@@ -120,10 +120,7 @@ public class GoodsServiceImpl implements GoodsSrevice {
 
         //对应商品的图片
 
-        List<GoodsImg> goodsImgList = goodsImgRepository.findByGoodsId(goodsId,PageRequest.of(0,3));
-
-        goodsImgList.forEach(e->stringList.add(e.getImgUrl()));
-
+        goodsImgRepository.findByGoodsId(goodsId,PageRequest.of(0,3)).forEach(e->stringList.add(e.getImgUrl()));
 
         goodsInfoVO.setGoodsId(goods.getId());
         goodsInfoVO.setUserId(goods.getUserId());
