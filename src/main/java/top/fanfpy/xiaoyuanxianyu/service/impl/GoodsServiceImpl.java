@@ -122,6 +122,8 @@ public class GoodsServiceImpl implements GoodsSrevice {
 
         List<GoodsImg> goodsImgList = goodsImgRepository.findByGoodsId(goodsId,PageRequest.of(0,3));
 
+        goodsImgList.forEach(e->stringList.add(e.getImgUrl()));
+
 
         goodsInfoVO.setGoodsId(goods.getId());
         goodsInfoVO.setUserId(goods.getUserId());
