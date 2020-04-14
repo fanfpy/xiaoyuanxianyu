@@ -4,27 +4,19 @@ import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-class GoodsImgRepositoryTest {
+class GoodsRepositoryTest {
 
     @Autowired
-    private GoodsImgRepository goodsImgRepository;
+    private GoodsRepository goodsRepository;
 
     @Test
-    void findByGoodsIdLimit() {
-
+    void findByUserId() {
+        goodsRepository.findByUserId(1).forEach(System.out::println);
     }
-
-    @Test
-    void findByGoodsId() {
-        goodsImgRepository.findByGoodsId(1, PageRequest.of(0,3)).forEach(System.out::println);
-    }
-
-
 }

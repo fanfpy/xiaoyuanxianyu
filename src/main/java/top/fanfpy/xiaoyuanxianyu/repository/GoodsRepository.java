@@ -21,4 +21,6 @@ public interface GoodsRepository extends JpaRepository<Goods ,Integer> {
      * */
     List<Goods> findByClassificationId(Integer classifiactionId);
 
+
+    List<Goods> findByUserId(Integer userId);
 }
